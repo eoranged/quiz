@@ -3,6 +3,8 @@ import { AppState, Question, QuizResult, CharacterId } from './types';
 import { getQuestions, calculateResult, encodeAnswers, decodeAnswers } from './services/geminiService';
 import { Button } from './components/Button';
 import { WolfMedallion } from './components/WolfMedallion';
+import { CharacterCard } from './components/CharacterCard';
+import { CHARACTERS } from './data/characters';
 
 // Load all avatar images from the avatars directory
 // Using Vite's import.meta.glob to load assets dynamically
@@ -21,18 +23,33 @@ const App: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   // Check URL hash on mount to restore shared result
+  // Check URL hash on mount to restore shared result or enable dev view
+  const [isDevView, setIsDevView] = useState(false);
+
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash.startsWith('#result-')) {
-      const code = hash.replace('#result-', '');
-      const decodedAnswers = decodeAnswers(code);
-      if (decodedAnswers) {
-        const analysis = calculateResult(decodedAnswers);
-        setResult(analysis);
-        setGameState(AppState.RESULT);
-        setAnswers(decodedAnswers);
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#dev-view-all-characters') {
+        setIsDevView(true);
+        return;
       }
-    }
+
+      setIsDevView(false);
+      if (hash.startsWith('#result-')) {
+        const code = hash.replace('#result-', '');
+        const decodedAnswers = decodeAnswers(code);
+        if (decodedAnswers) {
+          const analysis = calculateResult(decodedAnswers);
+          setResult(analysis);
+          setGameState(AppState.RESULT);
+          setAnswers(decodedAnswers);
+        }
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const startGame = useCallback(() => {
@@ -125,8 +142,28 @@ const App: React.FC = () => {
 
         <main className="p-6 md:p-12 min-h-[500px] flex flex-col justify-center relative">
 
+          {/* STATE: DEV VIEW */}
+          {isDevView && (
+            <div className="animate-fadeIn space-y-12">
+              <div className="text-center mb-12">
+                <h1 className="text-3xl font-cinzel text-amber-500">Все Персонажи</h1>
+                <p className="text-slate-400">Режим разработчика</p>
+              </div>
+              <div className="grid grid-cols-1 gap-16">
+                {Object.values(CHARACTERS).map(char => (
+                  <div key={char.id} className="border-b border-slate-700 pb-12 last:border-0">
+                    <CharacterCard
+                      result={char}
+                      avatarStyle={getAvatarStyle(char.id)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* STATE: START */}
-          {gameState === AppState.START && (
+          {!isDevView && gameState === AppState.START && (
             <div className="text-center space-y-8 animate-fadeIn">
               <div className="flex justify-center mb-6">
                 <WolfMedallion className="w-32 h-32 float-anim" />
@@ -149,7 +186,7 @@ const App: React.FC = () => {
           )}
 
           {/* STATE: PLAYING */}
-          {gameState === AppState.PLAYING && questions.length > 0 && (
+          {!isDevView && gameState === AppState.PLAYING && questions.length > 0 && (
             <div className="space-y-8 animate-fadeIn">
               <div className="flex justify-between items-end border-b border-slate-700 pb-4">
                 <span className="text-amber-600 font-cinzel font-bold">Вопрос {currentQuestionIndex + 1} / {questions.length}</span>
@@ -166,7 +203,7 @@ const App: React.FC = () => {
                     key={option.id}
                     variant="option"
                     onClick={() => handleAnswer(option.id)}
-                    style={{animationDelay: `${idx * 100}ms`}}
+                    style={{ animationDelay: `${idx * 100}ms` }}
                     className="animate-[fadeIn_0.5s_ease-out_both]"
                   >
                     <span className="w-8 h-8 rounded-full border border-slate-500 flex items-center justify-center mr-4 text-xs text-slate-500 group-hover:border-amber-500 group-hover:text-amber-500 transition-colors shrink-0">
@@ -180,57 +217,13 @@ const App: React.FC = () => {
           )}
 
           {/* STATE: RESULT */}
-          {gameState === AppState.RESULT && result && (
-            <div className="animate-fadeIn space-y-6 text-center">
-              <div className="relative inline-block mb-2">
-                 <h2 className="text-xs tracking-[0.3em] uppercase text-slate-500 font-bold">Твое истинное лицо</h2>
-              </div>
-
-              <div className="flex justify-center mb-6">
-                 <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-amber-700/50 overflow-hidden shadow-[0_0_30px_rgba(180,83,9,0.3)] bg-slate-800">
-                    <div
-                      // scale-110 applied to crop out potential margins from image files
-                      className="w-full h-full transform scale-110 hover:scale-125 transition-transform duration-700"
-                      style={getAvatarStyle(result.id)}
-                      role="img"
-                      aria-label={result.name}
-                    >
-                      {!getAvatarStyle(result.id).backgroundImage && (
-                        <div className="w-full h-full flex items-center justify-center">
-                             <WolfMedallion className="w-16 h-16 opacity-20" />
-                        </div>
-                      )}
-                    </div>
-                 </div>
-              </div>
-
-              <h1 className={`text-3xl md:text-5xl font-cinzel mb-2 ${result.colorTheme}`}>
-                {result.name}
-              </h1>
-              <p className="text-xl text-slate-400 font-serif italic mb-6">{result.title}</p>
-
-              <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 shadow-inner text-left mb-6">
-                 <p className="text-slate-300 leading-relaxed text-lg">
-                   {result.description}
-                 </p>
-                 <div className="mt-4 pt-4 border-t border-slate-700/50 text-right">
-                    <span className="text-xs text-slate-500 uppercase tracking-wider">Мировоззрение: {result.alignment}</span>
-                 </div>
-              </div>
-
-              <blockquote className="border-l-4 border-amber-700 pl-4 italic text-slate-400 text-left my-8 bg-slate-900/50 p-4 rounded-r">
-                "{result.quote}"
-              </blockquote>
-
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
-                <Button onClick={restartGame} variant="primary" className="flex-1">
-                  Пройти заново
-                </Button>
-                <Button onClick={() => setShowShareModal(true)} variant="secondary" className="flex-1">
-                  Поделиться
-                </Button>
-              </div>
-            </div>
+          {!isDevView && gameState === AppState.RESULT && result && (
+            <CharacterCard
+              result={result}
+              avatarStyle={getAvatarStyle(result.id)}
+              onRestart={restartGame}
+              onShare={() => setShowShareModal(true)}
+            />
           )}
 
         </main>
@@ -239,25 +232,25 @@ const App: React.FC = () => {
       {/* Share Modal */}
       {showShareModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn" onClick={() => setShowShareModal(false)}>
-           <div className="bg-slate-900 border border-amber-700/50 p-6 rounded-xl shadow-2xl max-w-md w-full" onClick={e => e.stopPropagation()}>
-              <h3 className="text-xl font-cinzel text-amber-500 mb-4 text-center">Поделиться результатом</h3>
-              <p className="text-slate-400 mb-4 text-center text-sm">Скопируйте ссылку, чтобы показать друзьям, кто вы из Ведьмака:</p>
-              <div className="flex gap-2 mb-6">
-                 <input
-                   type="text"
-                   readOnly
-                   value={window.location.href}
-                   className="flex-1 bg-slate-950 border border-slate-700 rounded p-2 text-slate-300 text-sm focus:border-amber-500 outline-none truncate"
-                   onClick={e => e.currentTarget.select()}
-                 />
-                 <Button variant="primary" onClick={copyToClipboard} className="py-2 px-4 text-xs">
-                   {copied ? 'Скопировано!' : 'Копировать'}
-                 </Button>
-              </div>
-               <div className="flex justify-end">
-                  <button onClick={() => setShowShareModal(false)} className="text-slate-500 hover:text-slate-300 transition-colors text-sm uppercase tracking-wider font-bold">Закрыть</button>
-               </div>
-           </div>
+          <div className="bg-slate-900 border border-amber-700/50 p-6 rounded-xl shadow-2xl max-w-md w-full" onClick={e => e.stopPropagation()}>
+            <h3 className="text-xl font-cinzel text-amber-500 mb-4 text-center">Поделиться результатом</h3>
+            <p className="text-slate-400 mb-4 text-center text-sm">Скопируйте ссылку, чтобы показать друзьям, кто вы из Ведьмака:</p>
+            <div className="flex gap-2 mb-6">
+              <input
+                type="text"
+                readOnly
+                value={window.location.href}
+                className="flex-1 bg-slate-950 border border-slate-700 rounded p-2 text-slate-300 text-sm focus:border-amber-500 outline-none truncate"
+                onClick={e => e.currentTarget.select()}
+              />
+              <Button variant="primary" onClick={copyToClipboard} className="py-2 px-4 text-xs">
+                {copied ? 'Скопировано!' : 'Копировать'}
+              </Button>
+            </div>
+            <div className="flex justify-end">
+              <button onClick={() => setShowShareModal(false)} className="text-slate-500 hover:text-slate-300 transition-colors text-sm uppercase tracking-wider font-bold">Закрыть</button>
+            </div>
+          </div>
         </div>
       )}
 
