@@ -162,9 +162,10 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
     let winner = CharacterId.GERALT;
 
     const ids = Object.keys(scores) as CharacterId[];
-    const shuffledIds = ids.sort(() => Math.random() - 0.5);
+    // Sort deterministically to ensure consistent tie-breaking
+    const sortedIds = ids.sort();
 
-    shuffledIds.forEach(charId => {
+    sortedIds.forEach(charId => {
         const score = scores[charId] || 0;
         if (score > maxScore) {
             maxScore = score;
@@ -176,23 +177,42 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
 };
 
 export const encodeAnswers = (answers: Record<string, string>): string => {
-    return QUESTIONS_DATA.map(q => {
+    const chars = QUESTIONS_DATA.map(q => {
         const answerId = answers[q.id];
         // answerId format is "qX_y", we want "y" (last char)
         return answerId ? answerId.split('_').pop() : '-';
     }).join('');
+
+    try {
+        return btoa(chars);
+    } catch (e) {
+        console.error("Failed to encode answers", e);
+        return "";
+    }
 };
 
 export const decodeAnswers = (code: string): Record<string, string> | null => {
-    if (code.length !== QUESTIONS_DATA.length) return null;
+    if (!code) return null;
+
+    let decoded = "";
+    try {
+        decoded = atob(code);
+    } catch (e) {
+        console.error("Failed to decode answers", e);
+        return null;
+    }
+
+    if (decoded.length !== QUESTIONS_DATA.length) return null;
 
     const answers: Record<string, string> = {};
 
     // Validate characters (a,b,c,d)
-    if (!/^[abcd]+$/.test(code)) return null;
+    if (!/^[abcd-]+$/.test(decoded)) return null;
 
     for (let i = 0; i < QUESTIONS_DATA.length; i++) {
-        const char = code[i];
+        const char = decoded[i];
+        if (char === '-') continue;
+
         const qId = QUESTIONS_DATA[i].id;
         answers[qId] = `${qId}_${char}`;
     }
