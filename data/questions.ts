@@ -19,7 +19,12 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.BONHART]: 8,
                     [CharacterId.IORVETH]: 5,
                     [CharacterId.ROCHE]: 3,
-                    [CharacterId.CIRI]: 2
+                    [CharacterId.CIRI]: 2,
+                    [CharacterId.CAHIR]: 5,
+                    [CharacterId.MILVA]: 3,
+                    [CharacterId.MOUSESACK]: 8,
+                    [CharacterId.RADOVID]: 5,
+                    [CharacterId.EREDIN]: 3
                 }
             },
             {
@@ -32,8 +37,14 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.SYANNA]: 21,
                     [CharacterId.FRINGILLA]: 13,
                     [CharacterId.MARGARITA]: 8,
-                    [CharacterId.SHEALA]: 5,
-                    [CharacterId.TRISS]: 3
+                    [CharacterId.SHEALA]: 8,
+                    [CharacterId.TRISS]: 3,
+                    [CharacterId.TISSAIA]: 13,
+                    [CharacterId.FOLTEST]: 8,
+                    [CharacterId.PAVETTA]: 5,
+                    [CharacterId.DUDU]: 3,
+                    [CharacterId.CERYS]: 2,
+                    [CharacterId.DETTLAFF]: 1
                 }
             },
             {
@@ -48,7 +59,13 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.ZOLTAN]: 8,
                     [CharacterId.YARPEN]: 5,
                     [CharacterId.CRACH]: 3,
-                    [CharacterId.HJALMAR]: 2
+                    [CharacterId.HJALMAR]: 2,
+                    [CharacterId.SHANI]: 13,
+                    [CharacterId.CERYS]: 8,
+                    [CharacterId.VES]: 5,
+                    [CharacterId.REGIS]: 3,
+                    [CharacterId.CALANTHE]: 5,
+                    [CharacterId.UMA]: 2
                 }
             },
             {
@@ -57,7 +74,10 @@ export const QUESTIONS_DATA: Question[] = [
                 weights: {
                     [CharacterId.ROACH]: 89,
                     [CharacterId.UMA]: 21,
-                    [CharacterId.DUDU]: 8
+                    [CharacterId.DUDU]: 13,
+                    [CharacterId.PAVETTA]: 5,
+                    [CharacterId.ESKEL]: 8,
+                    [CharacterId.LAMBERT]: 5
                 }
             },
         ]
@@ -76,7 +96,15 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.KEIRA]: 21,
                     [CharacterId.GAUNTER]: 13,
                     [CharacterId.AVALLACH]: 8,
-                    [CharacterId.PHILIPPA]: 5
+                    [CharacterId.PHILIPPA]: 5,
+                    [CharacterId.VILGEFORTZ]: 13,
+                    [CharacterId.SHEALA]: 8,
+                    [CharacterId.TISSAIA]: 5,
+                    [CharacterId.MOUSESACK]: 3,
+                    [CharacterId.SYANNA]: 8,
+                    [CharacterId.ROACH]: 2,
+                    [CharacterId.PRISCILLA]: 3,
+                    [CharacterId.DUDU]: 1
                 }
             },
             {
@@ -89,7 +117,11 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.SHEALA]: 21,
                     [CharacterId.SHANI]: 13,
                     [CharacterId.DIJKSTRA]: 8,
-                    [CharacterId.EMHYR]: 5
+                    [CharacterId.EMHYR]: 5,
+                    [CharacterId.RADOVID]: 21,
+                    [CharacterId.FOLTEST]: 13,
+                    [CharacterId.RENFRI]: 8,
+                    [CharacterId.ANNA_HENRIETTA]: 3
                 }
             },
             {
@@ -102,7 +134,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.DIJKSTRA]: 21,
                     [CharacterId.REGIS]: 13,
                     [CharacterId.BONHART]: 8,
-                    [CharacterId.MOUSESACK]: 5
+                    [CharacterId.MOUSESACK]: 5,
+                    [CharacterId.ESKEL]: 21,
+                    [CharacterId.LAMBERT]: 34
                 }
             },
             {
@@ -115,7 +149,11 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CRACH]: 21,
                     [CharacterId.ROCHE]: 13,
                     [CharacterId.IORVETH]: 8,
-                    [CharacterId.LETHO]: 5
+                    [CharacterId.LETHO]: 5,
+                    [CharacterId.MILVA]: 21,
+                    [CharacterId.VES]: 13,
+                    [CharacterId.CALANTHE]: 8,
+                    [CharacterId.ANGOULEME]: 3
                 }
             },
         ]
@@ -133,8 +171,12 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.AVALLACH]: 34,
                     [CharacterId.VILGEFORTZ]: 21,
                     [CharacterId.EMHYR]: 13,
-                    [CharacterId.TISSAIA]: 8,
-                    [CharacterId.SHANI]: 5
+                    [CharacterId.TISSAIA]: 21,
+                    [CharacterId.SHANI]: 5,
+                    [CharacterId.SHEALA]: 13,
+                    [CharacterId.CALANTHE]: 5,
+                    [CharacterId.PAVETTA]: 3,
+                    [CharacterId.BONHART]: 2
                 }
             },
             {
@@ -144,10 +186,15 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.LAMBERT]: 89,
                     [CharacterId.OLGIERD]: 55,
                     [CharacterId.VLODIMIR]: 34,
-                    [CharacterId.ANGOULEME]: 21,
+                    [CharacterId.ANGOULEME]: 34,
                     [CharacterId.ZOLTAN]: 13,
                     [CharacterId.YARPEN]: 8,
-                    [CharacterId.CRACH]: 5
+                    [CharacterId.CRACH]: 13,
+                    [CharacterId.JASKIER]: 34,
+                    [CharacterId.PRISCILLA]: 21,
+                    [CharacterId.HJALMAR]: 8,
+                    [CharacterId.VES]: 5,
+                    [CharacterId.IMLERITH]: 3
                 }
             },
             {
@@ -160,7 +207,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.ROCHE]: 21,
                     [CharacterId.IORVETH]: 13,
                     [CharacterId.LETHO]: 8,
-                    [CharacterId.CAHIR]: 5
+                    [CharacterId.CAHIR]: 5,
+                    [CharacterId.UMA]: 13,
+                    [CharacterId.ROACH]: 3,
+                    [CharacterId.MILVA]: 2
                 }
             },
             {
@@ -173,7 +223,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.SYANNA]: 21,
                     [CharacterId.TRISS]: 13,
                     [CharacterId.FRINGILLA]: 8,
-                    [CharacterId.MARGARITA]: 5
+                    [CharacterId.MARGARITA]: 34
                 }
             },
         ]
@@ -191,7 +241,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.THALER]: 34,
                     [CharacterId.GAUNTER]: 21,
                     [CharacterId.AVALLACH]: 13,
-                    [CharacterId.VILGEFORTZ]: 8
+                    [CharacterId.VILGEFORTZ]: 8,
+                    [CharacterId.SHANI]: 5,
+                    [CharacterId.SHEALA]: 21
                 }
             },
             {
@@ -202,7 +254,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CAHIR]: 55,
                     [CharacterId.FRINGILLA]: 34,
                     [CharacterId.LETHO]: 21,
-                    [CharacterId.EREDIN]: 13
+                    [CharacterId.EREDIN]: 13,
+                    [CharacterId.RADOVID]: 13,
+                    [CharacterId.VILGEFORTZ]: 21
                 }
             },
             {
@@ -213,7 +267,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.VES]: 55,
                     [CharacterId.FOLTEST]: 34,
                     [CharacterId.THALER]: 21,
-                    [CharacterId.CERYS]: 8
+                    [CharacterId.CERYS]: 8,
+                    [CharacterId.CRACH]: 5
                 }
             },
             {
@@ -224,7 +279,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.MILVA]: 55,
                     [CharacterId.EREDIN]: 34,
                     [CharacterId.IMLERITH]: 21,
-                    [CharacterId.AVALLACH]: 13
+                    [CharacterId.AVALLACH]: 13,
+                    [CharacterId.DETTLAFF]: 8
                 }
             },
         ]
@@ -241,7 +297,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.OLGIERD]: 55,
                     [CharacterId.VLODIMIR]: 34,
                     [CharacterId.CIRI]: 21,
-                    [CharacterId.YENNEFER]: 13
+                    [CharacterId.YENNEFER]: 13,
+                    [CharacterId.DETTLAFF]: 13,
+                    [CharacterId.RENFRI]: 8
                 }
             },
             {
@@ -252,7 +310,11 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.REGIS]: 55,
                     [CharacterId.MARGARITA]: 34,
                     [CharacterId.TRISS]: 21,
-                    [CharacterId.CERYS]: 13
+                    [CharacterId.CERYS]: 13,
+                    [CharacterId.JASKIER]: 8,
+                    [CharacterId.PRISCILLA]: 5,
+                    [CharacterId.PAVETTA]: 21,
+                    [CharacterId.ESKEL]: 13
                 }
             },
             {
@@ -263,7 +325,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.DUDU]: 55,
                     [CharacterId.DIJKSTRA]: 34,
                     [CharacterId.THALER]: 21,
-                    [CharacterId.AVALLACH]: 13
+                    [CharacterId.AVALLACH]: 13,
+                    [CharacterId.CAHIR]: 8,
+                    [CharacterId.ROACH]: 5,
+                    [CharacterId.FOLTEST]: 3
                 }
             },
             {
@@ -274,7 +339,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.TRISS]: 55,
                     [CharacterId.RADOVID]: 34,
                     [CharacterId.EMHYR]: 21,
-                    [CharacterId.EREDIN]: 13
+                    [CharacterId.EREDIN]: 34,
+                    [CharacterId.CALANTHE]: 13,
+                    [CharacterId.IMLERITH]: 21
                 }
             },
         ]
@@ -288,7 +355,9 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Когда меня называют Нильфгаардцем!",
                 weights: {
                     [CharacterId.CAHIR]: 89,
-                    [CharacterId.EMHYR]: 21
+                    [CharacterId.EMHYR]: 21,
+                    [CharacterId.RENFRI]: 13,
+                    [CharacterId.FRINGILLA]: 8
                 }
             },
             {
@@ -298,7 +367,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.MILVA]: 89,
                     [CharacterId.IORVETH]: 55,
                     [CharacterId.GERALT]: 34,
-                    [CharacterId.ROCHE]: 21
+                    [CharacterId.ROCHE]: 21,
+                    [CharacterId.VES]: 13,
+                    [CharacterId.MOUSESACK]: 13
                 }
             },
             {
@@ -309,7 +380,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.ZOLTAN]: 55,
                     [CharacterId.YARPEN]: 34,
                     [CharacterId.OLGIERD]: 21,
-                    [CharacterId.VLODIMIR]: 13
+                    [CharacterId.VLODIMIR]: 13,
+                    [CharacterId.JASKIER]: 21
                 }
             },
             {
@@ -320,7 +392,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.LETHO]: 55,
                     [CharacterId.GERALT]: 34,
                     [CharacterId.VESEMIR]: 21,
-                    [CharacterId.LAMBERT]: 13
+                    [CharacterId.LAMBERT]: 13,
+                    [CharacterId.RENFRI]: 5
                 }
             },
         ]
@@ -333,40 +406,44 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "q7_a",
                 text: "Имперская чародейка, люблю книги.",
                 weights: {
-                    [CharacterId.FRINGILLA]: 89,
-                    [CharacterId.KEIRA]: 55,
-                    [CharacterId.TRISS]: 34,
-                    [CharacterId.MARGARITA]: 21
+                    [CharacterId.FRINGILLA]: 55,
+                    [CharacterId.KEIRA]: 34,
+                    [CharacterId.TRISS]: 21,
+                    [CharacterId.MARGARITA]: 13,
+                    [CharacterId.PHILIPPA]: 8,
+                    [CharacterId.PAVETTA]: 3
                 }
             },
             {
                 id: "q7_b",
                 text: "Ректор школы, люблю своих учениц.",
                 weights: {
-                    [CharacterId.MARGARITA]: 89,
-                    [CharacterId.TISSAIA]: 55,
-                    [CharacterId.YENNEFER]: 34,
-                    [CharacterId.VESEMIR]: 21
+                    [CharacterId.MARGARITA]: 55,
+                    [CharacterId.TISSAIA]: 34,
+                    [CharacterId.YENNEFER]: 21,
+                    [CharacterId.VESEMIR]: 13
                 }
             },
             {
                 id: "q7_c",
                 text: "Отшельница, люблю астрологию.",
                 weights: {
-                    [CharacterId.SHEALA]: 89,
-                    [CharacterId.AVALLACH]: 55,
-                    [CharacterId.REGIS]: 34,
-                    [CharacterId.MOUSESACK]: 21
+                    [CharacterId.SHEALA]: 55,
+                    [CharacterId.AVALLACH]: 34,
+                    [CharacterId.REGIS]: 21,
+                    [CharacterId.MOUSESACK]: 13
                 }
             },
             {
                 id: "q7_d",
                 text: "Строгая наставница, люблю порядок.",
                 weights: {
-                    [CharacterId.TISSAIA]: 89,
-                    [CharacterId.YENNEFER]: 55,
-                    [CharacterId.PHILIPPA]: 34,
-                    [CharacterId.BONHART]: 13
+                    [CharacterId.TISSAIA]: 55,
+                    [CharacterId.YENNEFER]: 34,
+                    [CharacterId.PHILIPPA]: 21,
+                    [CharacterId.BONHART]: 13,
+                    [CharacterId.RADOVID]: 5,
+                    [CharacterId.EREDIN]: 3
                 }
             },
         ]
@@ -383,7 +460,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.DIJKSTRA]: 55,
                     [CharacterId.THALER]: 34,
                     [CharacterId.GAUNTER]: 21,
-                    [CharacterId.AVALLACH]: 13
+                    [CharacterId.AVALLACH]: 13,
+                    [CharacterId.UMA]: 8
                 }
             },
             {
@@ -393,7 +471,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.PRISCILLA]: 89,
                     [CharacterId.JASKIER]: 55,
                     [CharacterId.CIRI]: 21,
-                    [CharacterId.ANGOULEME]: 13
+                    [CharacterId.ANGOULEME]: 13,
+                    [CharacterId.ROACH]: 8
                 }
             },
             {
@@ -430,7 +509,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.SYANNA]: 55,
                     [CharacterId.FRINGILLA]: 34,
                     [CharacterId.EMHYR]: 21,
-                    [CharacterId.FOLTEST]: 13
+                    [CharacterId.FOLTEST]: 13,
+                    [CharacterId.CALANTHE]: 8
                 }
             },
             {
@@ -441,7 +521,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.VLODIMIR]: 55,
                     [CharacterId.GERALT]: 34,
                     [CharacterId.CIRI]: 21,
-                    [CharacterId.GAUNTER]: 13
+                    [CharacterId.GAUNTER]: 13,
+                    [CharacterId.DETTLAFF]: 8,
+                    [CharacterId.REGIS]: 5
                 }
             },
             {
@@ -479,7 +561,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.FOLTEST]: 55,
                     [CharacterId.CALANTHE]: 34,
                     [CharacterId.ANNA_HENRIETTA]: 21,
-                    [CharacterId.EMHYR]: 13
+                    [CharacterId.EMHYR]: 13,
+                    [CharacterId.PAVETTA]: 8,
+                    [CharacterId.VESEMIR]: 5
                 }
             },
             {
@@ -489,7 +573,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.HJALMAR]: 89,
                     [CharacterId.GERALT]: 55,
                     [CharacterId.LAMBERT]: 34,
-                    [CharacterId.ESKEL]: 21
+                    [CharacterId.ESKEL]: 21,
+                    [CharacterId.LETHO]: 13,
+                    [CharacterId.BONHART]: 8
                 }
             },
             {
@@ -499,7 +585,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.MOUSESACK]: 89,
                     [CharacterId.AVALLACH]: 55,
                     [CharacterId.YENNEFER]: 34,
-                    [CharacterId.KEIRA]: 21
+                    [CharacterId.KEIRA]: 21,
+                    [CharacterId.ROACH]: 13
                 }
             },
             {
@@ -510,7 +597,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.PHILIPPA]: 55,
                     [CharacterId.DIJKSTRA]: 34,
                     [CharacterId.EMHYR]: 21,
-                    [CharacterId.THALER]: 13
+                    [CharacterId.THALER]: 13,
+                    [CharacterId.VILGEFORTZ]: 8
                 }
             },
         ]
@@ -527,7 +615,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.JASKIER]: 55,
                     [CharacterId.PRISCILLA]: 34,
                     [CharacterId.ANNA_HENRIETTA]: 21,
-                    [CharacterId.VLODIMIR]: 13
+                    [CharacterId.VLODIMIR]: 13,
+                    [CharacterId.DUDU]: 8,
+                    [CharacterId.CERYS]: 5,
+                    [CharacterId.UMA]: 2
                 }
             },
             {
@@ -537,7 +628,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.LETHO]: 89,
                     [CharacterId.GERALT]: 55,
                     [CharacterId.BONHART]: 34,
-                    [CharacterId.IMLERITH]: 21
+                    [CharacterId.IMLERITH]: 21,
+                    [CharacterId.CRACH]: 8
                 }
             },
             {
@@ -548,7 +640,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.MILVA]: 55,
                     [CharacterId.KEIRA]: 34,
                     [CharacterId.YENNEFER]: 21,
-                    [CharacterId.TRISS]: 13
+                    [CharacterId.TRISS]: 13,
+                    [CharacterId.RENFRI]: 8,
+                    [CharacterId.TISSAIA]: 5
                 }
             },
             {
@@ -559,7 +653,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.DIJKSTRA]: 55,
                     [CharacterId.ZOLTAN]: 34,
                     [CharacterId.YARPEN]: 21,
-                    [CharacterId.LAMBERT]: 13
+                    [CharacterId.LAMBERT]: 13,
+                    [CharacterId.ESKEL]: 8,
+                    [CharacterId.ROCHE]: 8,
+                    [CharacterId.ANGOULEME]: 13
                 }
             },
         ]
@@ -575,7 +672,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.UMA]: 89,
                     [CharacterId.AVALLACH]: 55,
                     [CharacterId.DUDU]: 34,
-                    [CharacterId.GAUNTER]: 21
+                    [CharacterId.GAUNTER]: 21,
+                    [CharacterId.ROACH]: 13
                 }
             },
             {
@@ -583,7 +681,9 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Жестокий эльф с огромной булавой.",
                 weights: {
                     [CharacterId.IMLERITH]: 89,
-                    [CharacterId.EREDIN]: 55
+                    [CharacterId.EREDIN]: 55,
+                    [CharacterId.IORVETH]: 21,
+                    [CharacterId.HJALMAR]: 21
                 }
             },
             {
@@ -601,7 +701,10 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Загадочный эльф, рисующий бизонов.",
                 weights: {
                     [CharacterId.AVALLACH]: 89,
-                    [CharacterId.CIRI]: 55
+                    [CharacterId.CIRI]: 55,
+                    [CharacterId.PRISCILLA]: 8,
+                    [CharacterId.JASKIER]: 5,
+                    [CharacterId.MOUSESACK]: 2
                 }
             },
         ]
@@ -618,7 +721,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.SYANNA]: 55,
                     [CharacterId.OLGIERD]: 34,
                     [CharacterId.GAUNTER]: 21,
-                    [CharacterId.DETTLAFF]: 13
+                    [CharacterId.DETTLAFF]: 13,
+                    [CharacterId.RADOVID]: 8
                 }
             },
             {
@@ -629,7 +733,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CIRI]: 55,
                     [CharacterId.ROCHE]: 34,
                     [CharacterId.VES]: 21,
-                    [CharacterId.CAHIR]: 13
+                    [CharacterId.CAHIR]: 13,
+                    [CharacterId.UMA]: 8,
+                    [CharacterId.CERYS]: 8
                 }
             },
             {
@@ -640,7 +746,11 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CIRI]: 55,
                     [CharacterId.YENNEFER]: 34,
                     [CharacterId.TRISS]: 21,
-                    [CharacterId.VILGEFORTZ]: 13
+                    [CharacterId.VILGEFORTZ]: 13,
+                    [CharacterId.PHILIPPA]: 8,
+                    [CharacterId.TISSAIA]: 5,
+                    [CharacterId.SHEALA]: 3,
+                    [CharacterId.MARGARITA]: 2
                 }
             },
             {
@@ -652,7 +762,12 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.REGIS]: 34,
                     [CharacterId.CAHIR]: 21,
                     [CharacterId.MILVA]: 13,
-                    [CharacterId.ANGOULEME]: 8
+                    [CharacterId.ANGOULEME]: 8,
+                    [CharacterId.VESEMIR]: 5,
+                    [CharacterId.SHANI]: 8,
+                    [CharacterId.IORVETH]: 5,
+                    [CharacterId.CRACH]: 3,
+                    [CharacterId.HJALMAR]: 2
                 }
             },
         ]
