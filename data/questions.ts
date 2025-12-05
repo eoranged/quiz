@@ -64,8 +64,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CERYS]: 8,
                     [CharacterId.VES]: 5,
                     [CharacterId.REGIS]: 3,
-                    [CharacterId.CALANTHE]: 5,
-                    [CharacterId.UMA]: 2
+                    [CharacterId.CALANTHE]: 21, // Boosted
+                    [CharacterId.UMA]: 13, // Boosted
+                    [CharacterId.ROACH]: 8 // Boosted
                 }
             },
             {
@@ -73,7 +74,7 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Пожевать овес на крыше сарая.",
                 weights: {
                     [CharacterId.ROACH]: 89,
-                    [CharacterId.UMA]: 21,
+                    [CharacterId.UMA]: 55, // Boosted
                     [CharacterId.DUDU]: 13,
                     [CharacterId.PAVETTA]: 5,
                     [CharacterId.ESKEL]: 8,
@@ -98,13 +99,14 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.AVALLACH]: 8,
                     [CharacterId.PHILIPPA]: 5,
                     [CharacterId.VILGEFORTZ]: 13,
-                    [CharacterId.SHEALA]: 8,
-                    [CharacterId.TISSAIA]: 5,
-                    [CharacterId.MOUSESACK]: 3,
                     [CharacterId.SYANNA]: 8,
                     [CharacterId.ROACH]: 2,
                     [CharacterId.PRISCILLA]: 3,
-                    [CharacterId.DUDU]: 1
+                    [CharacterId.DUDU]: 1,
+                    [CharacterId.TISSAIA]: 34,
+                    [CharacterId.SHEALA]: 21,
+                    [CharacterId.MOUSESACK]: 13,
+                    [CharacterId.PAVETTA]: 8
                 }
             },
             {
@@ -134,9 +136,11 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.DIJKSTRA]: 21,
                     [CharacterId.REGIS]: 13,
                     [CharacterId.BONHART]: 8,
-                    [CharacterId.MOUSESACK]: 5,
+                    [CharacterId.MOUSESACK]: 34, // Boosted
                     [CharacterId.ESKEL]: 21,
-                    [CharacterId.LAMBERT]: 34
+                    [CharacterId.LAMBERT]: 34,
+                    [CharacterId.ROACH]: 21, // Boosted
+                    [CharacterId.UMA]: 13 // Boosted
                 }
             },
             {
@@ -148,12 +152,12 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.HJALMAR]: 34,
                     [CharacterId.CRACH]: 21,
                     [CharacterId.ROCHE]: 13,
-                    [CharacterId.IORVETH]: 8,
-                    [CharacterId.LETHO]: 5,
+                    [CharacterId.IORVETH]: 21, // Boosted
+                    [CharacterId.LETHO]: 13, // Boosted
                     [CharacterId.MILVA]: 21,
                     [CharacterId.VES]: 13,
-                    [CharacterId.CALANTHE]: 8,
-                    [CharacterId.ANGOULEME]: 3
+                    [CharacterId.CALANTHE]: 34, // Boosted
+                    [CharacterId.ANGOULEME]: 21 // Boosted
                 }
             },
         ]
@@ -171,12 +175,13 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.AVALLACH]: 34,
                     [CharacterId.VILGEFORTZ]: 21,
                     [CharacterId.EMHYR]: 13,
-                    [CharacterId.TISSAIA]: 21,
                     [CharacterId.SHANI]: 5,
-                    [CharacterId.SHEALA]: 13,
                     [CharacterId.CALANTHE]: 5,
-                    [CharacterId.PAVETTA]: 3,
-                    [CharacterId.BONHART]: 2
+                    [CharacterId.PAVETTA]: 21, // Boosted
+                    [CharacterId.BONHART]: 2,
+                    [CharacterId.SHEALA]: 55, // Boosted
+                    [CharacterId.TISSAIA]: 34, // Boosted
+                    [CharacterId.MARGARITA]: 89 // Boosted
                 }
             },
             {
@@ -184,15 +189,15 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Наливай, хер моржовый!",
                 weights: {
                     [CharacterId.LAMBERT]: 89,
-                    [CharacterId.OLGIERD]: 55,
+                    [CharacterId.OLGIERD]: 34, // Decreased
                     [CharacterId.VLODIMIR]: 34,
-                    [CharacterId.ANGOULEME]: 34,
+                    [CharacterId.ANGOULEME]: 89,
                     [CharacterId.ZOLTAN]: 13,
                     [CharacterId.YARPEN]: 8,
                     [CharacterId.CRACH]: 13,
                     [CharacterId.JASKIER]: 34,
-                    [CharacterId.PRISCILLA]: 21,
-                    [CharacterId.HJALMAR]: 8,
+                    [CharacterId.PRISCILLA]: 55,
+                    [CharacterId.HJALMAR]: 21, // Boosted
                     [CharacterId.VES]: 5,
                     [CharacterId.IMLERITH]: 3
                 }
@@ -207,10 +212,14 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.ROCHE]: 21,
                     [CharacterId.IORVETH]: 13,
                     [CharacterId.LETHO]: 8,
-                    [CharacterId.CAHIR]: 5,
-                    [CharacterId.UMA]: 13,
+                    [CharacterId.CAHIR]: 13,
+                    [CharacterId.UMA]: 21, // Boosted
                     [CharacterId.ROACH]: 3,
-                    [CharacterId.MILVA]: 2
+                    [CharacterId.MILVA]: 2,
+                    [CharacterId.CRACH]: 21,
+                    [CharacterId.CERYS]: 34,
+                    [CharacterId.MOUSESACK]: 13,
+                    [CharacterId.CALANTHE]: 55 // Boosted
                 }
             },
             {
@@ -236,14 +245,15 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "q4_a",
                 text: "Я знаю все секреты и правлю из тени.",
                 weights: {
-                    [CharacterId.DIJKSTRA]: 89,
-                    [CharacterId.PHILIPPA]: 55,
+                    [CharacterId.SHEALA]: 89,
+                    [CharacterId.DIJKSTRA]: 55,
+                    [CharacterId.PHILIPPA]: 34,
+                    [CharacterId.TISSAIA]: 21,
                     [CharacterId.THALER]: 34,
                     [CharacterId.GAUNTER]: 21,
                     [CharacterId.AVALLACH]: 13,
-                    [CharacterId.VILGEFORTZ]: 8,
-                    [CharacterId.SHANI]: 5,
-                    [CharacterId.SHEALA]: 21
+                    [CharacterId.VILGEFORTZ]: 34, // Boosted
+                    [CharacterId.SHANI]: 5
                 }
             },
             {
@@ -252,10 +262,10 @@ export const QUESTIONS_DATA: Question[] = [
                 weights: {
                     [CharacterId.EMHYR]: 89,
                     [CharacterId.CAHIR]: 55,
-                    [CharacterId.FRINGILLA]: 34,
-                    [CharacterId.LETHO]: 21,
-                    [CharacterId.EREDIN]: 13,
-                    [CharacterId.RADOVID]: 13,
+                    [CharacterId.FRINGILLA]: 21,
+                    [CharacterId.LETHO]: 55, // Boosted
+                    [CharacterId.EREDIN]: 34,
+                    [CharacterId.RADOVID]: 34,
                     [CharacterId.VILGEFORTZ]: 21
                 }
             },
@@ -268,7 +278,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.FOLTEST]: 34,
                     [CharacterId.THALER]: 21,
                     [CharacterId.CERYS]: 8,
-                    [CharacterId.CRACH]: 5
+                    [CharacterId.CRACH]: 5,
+                    [CharacterId.PRISCILLA]: 13,
+                    [CharacterId.ANGOULEME]: 8
                 }
             },
             {
@@ -280,7 +292,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.EREDIN]: 34,
                     [CharacterId.IMLERITH]: 21,
                     [CharacterId.AVALLACH]: 13,
-                    [CharacterId.DETTLAFF]: 8
+                    [CharacterId.DETTLAFF]: 8,
+                    [CharacterId.YARPEN]: 13,
+                    [CharacterId.ZOLTAN]: 8,
+                    [CharacterId.CRACH]: 5
                 }
             },
         ]
@@ -298,8 +313,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.VLODIMIR]: 34,
                     [CharacterId.CIRI]: 21,
                     [CharacterId.YENNEFER]: 13,
-                    [CharacterId.DETTLAFF]: 13,
-                    [CharacterId.RENFRI]: 8
+                    [CharacterId.DETTLAFF]: 55,
+                    [CharacterId.RENFRI]: 34, // Boosted
+                    [CharacterId.VILGEFORTZ]: 21,
+                    [CharacterId.TISSAIA]: 34
                 }
             },
             {
@@ -314,7 +331,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.JASKIER]: 8,
                     [CharacterId.PRISCILLA]: 5,
                     [CharacterId.PAVETTA]: 21,
-                    [CharacterId.ESKEL]: 13
+                    [CharacterId.ESKEL]: 13,
+                    [CharacterId.MOUSESACK]: 21,
+                    [CharacterId.SHEALA]: 13
                 }
             },
             {
@@ -338,10 +357,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.VILGEFORTZ]: 89,
                     [CharacterId.TRISS]: 55,
                     [CharacterId.RADOVID]: 34,
-                    [CharacterId.EMHYR]: 21,
+                    [CharacterId.EMHYR]: 55, // Boosted
                     [CharacterId.EREDIN]: 34,
                     [CharacterId.CALANTHE]: 13,
-                    [CharacterId.IMLERITH]: 21
+                    [CharacterId.IMLERITH]: 55 // Boosted
                 }
             },
         ]
@@ -365,11 +384,12 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Нытики и болтуны в лесу.",
                 weights: {
                     [CharacterId.MILVA]: 89,
-                    [CharacterId.IORVETH]: 55,
+                    [CharacterId.IORVETH]: 89, // Boosted
                     [CharacterId.GERALT]: 34,
                     [CharacterId.ROCHE]: 21,
                     [CharacterId.VES]: 13,
-                    [CharacterId.MOUSESACK]: 13
+                    [CharacterId.MOUSESACK]: 89, // Boosted
+                    [CharacterId.ANGOULEME]: 34 // Boosted
                 }
             },
             {
@@ -378,10 +398,11 @@ export const QUESTIONS_DATA: Question[] = [
                 weights: {
                     [CharacterId.ANGOULEME]: 89,
                     [CharacterId.ZOLTAN]: 55,
-                    [CharacterId.YARPEN]: 34,
-                    [CharacterId.OLGIERD]: 21,
+                    [CharacterId.YARPEN]: 55, // Boosted
+                    [CharacterId.OLGIERD]: 13, // Decreased
                     [CharacterId.VLODIMIR]: 13,
-                    [CharacterId.JASKIER]: 21
+                    [CharacterId.JASKIER]: 21,
+                    [CharacterId.PAVETTA]: 34 // Boosted
                 }
             },
             {
@@ -428,22 +449,24 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "q7_c",
                 text: "Отшельница, люблю астрологию.",
                 weights: {
-                    [CharacterId.SHEALA]: 55,
                     [CharacterId.AVALLACH]: 34,
                     [CharacterId.REGIS]: 21,
-                    [CharacterId.MOUSESACK]: 13
+                    [CharacterId.MOUSESACK]: 55, // Boosted
+                    [CharacterId.SHEALA]: 89 // Boosted
                 }
             },
             {
                 id: "q7_d",
                 text: "Строгая наставница, люблю порядок.",
                 weights: {
-                    [CharacterId.TISSAIA]: 55,
+                    [CharacterId.TISSAIA]: 89, // Boosted from 55
                     [CharacterId.YENNEFER]: 34,
                     [CharacterId.PHILIPPA]: 21,
-                    [CharacterId.BONHART]: 13,
-                    [CharacterId.RADOVID]: 5,
-                    [CharacterId.EREDIN]: 3
+                    [CharacterId.BONHART]: 34, // Boosted
+                    [CharacterId.RADOVID]: 55, // Boosted
+                    [CharacterId.EREDIN]: 34, // Boosted
+                    [CharacterId.MARGARITA]: 13,
+                    [CharacterId.SHEALA]: 8
                 }
             },
         ]
@@ -471,8 +494,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.PRISCILLA]: 89,
                     [CharacterId.JASKIER]: 55,
                     [CharacterId.CIRI]: 21,
-                    [CharacterId.ANGOULEME]: 13,
-                    [CharacterId.ROACH]: 8
+                    [CharacterId.ANGOULEME]: 34, // Boosted
+                    [CharacterId.ROACH]: 21 // Boosted
                 }
             },
             {
@@ -480,9 +503,10 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Я убиваю тех, кто предал мою любовь.",
                 weights: {
                     [CharacterId.DETTLAFF]: 89,
-                    [CharacterId.RENFRI]: 55,
+                    [CharacterId.RENFRI]: 89, // Boosted
                     [CharacterId.SYANNA]: 34,
-                    [CharacterId.OLGIERD]: 21
+                    [CharacterId.OLGIERD]: 21,
+                    [CharacterId.CRACH]: 13
                 }
             },
             {
@@ -492,7 +516,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.SYANNA]: 89,
                     [CharacterId.ANNA_HENRIETTA]: 55,
                     [CharacterId.KEIRA]: 34,
-                    [CharacterId.FRINGILLA]: 21
+                    [CharacterId.FRINGILLA]: 21,
+                    [CharacterId.VILGEFORTZ]: 34,
+                    [CharacterId.IMLERITH]: 21,
+                    [CharacterId.BONHART]: 13
                 }
             },
         ]
@@ -522,8 +549,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.GERALT]: 34,
                     [CharacterId.CIRI]: 21,
                     [CharacterId.GAUNTER]: 13,
-                    [CharacterId.DETTLAFF]: 8,
-                    [CharacterId.REGIS]: 5
+                    [CharacterId.DETTLAFF]: 34, // Boosted
+                    [CharacterId.REGIS]: 5,
+                    [CharacterId.CRACH]: 21,
+                    [CharacterId.CERYS]: 13
                 }
             },
             {
@@ -541,10 +570,13 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Ору, пирую и дерусь на кулаках!",
                 weights: {
                     [CharacterId.CRACH]: 89,
-                    [CharacterId.HJALMAR]: 55,
+                    [CharacterId.HJALMAR]: 89, // Boosted
                     [CharacterId.ZOLTAN]: 34,
-                    [CharacterId.YARPEN]: 21,
-                    [CharacterId.IMLERITH]: 13
+                    [CharacterId.YARPEN]: 34,
+                    [CharacterId.IMLERITH]: 89,
+                    [CharacterId.BONHART]: 21,
+                    [CharacterId.LAMBERT]: 55,
+                    [CharacterId.ANGOULEME]: 8
                 }
             },
         ]
@@ -562,7 +594,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CALANTHE]: 34,
                     [CharacterId.ANNA_HENRIETTA]: 21,
                     [CharacterId.EMHYR]: 13,
-                    [CharacterId.PAVETTA]: 8,
+                    [CharacterId.PAVETTA]: 34, // Boosted
                     [CharacterId.VESEMIR]: 5
                 }
             },
@@ -571,10 +603,11 @@ export const QUESTIONS_DATA: Question[] = [
                 text: "Убить ледяного великана!",
                 weights: {
                     [CharacterId.HJALMAR]: 89,
-                    [CharacterId.GERALT]: 55,
-                    [CharacterId.LAMBERT]: 34,
-                    [CharacterId.ESKEL]: 21,
-                    [CharacterId.LETHO]: 13,
+                    [CharacterId.ESKEL]: 55,
+                    [CharacterId.LAMBERT]: 55,
+                    [CharacterId.ROACH]: 34, // Boosted
+                    [CharacterId.UMA]: 13,
+                    [CharacterId.ROCHE]: 89,
                     [CharacterId.BONHART]: 8
                 }
             },
@@ -582,11 +615,11 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "q10_c",
                 text: "Слушать духов леса и давать советы.",
                 weights: {
-                    [CharacterId.MOUSESACK]: 89,
                     [CharacterId.AVALLACH]: 55,
                     [CharacterId.YENNEFER]: 34,
                     [CharacterId.KEIRA]: 21,
-                    [CharacterId.ROACH]: 13
+                    [CharacterId.ROACH]: 34, // Boosted
+                    [CharacterId.MOUSESACK]: 89 // Boosted
                 }
             },
             {
@@ -596,9 +629,11 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.RADOVID]: 89,
                     [CharacterId.PHILIPPA]: 55,
                     [CharacterId.DIJKSTRA]: 34,
-                    [CharacterId.EMHYR]: 21,
+                    [CharacterId.EMHYR]: 55, // Boosted
                     [CharacterId.THALER]: 13,
-                    [CharacterId.VILGEFORTZ]: 8
+                    [CharacterId.VILGEFORTZ]: 34,
+                    [CharacterId.TISSAIA]: 21,
+                    [CharacterId.SHEALA]: 13
                 }
             },
         ]
@@ -617,8 +652,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.ANNA_HENRIETTA]: 21,
                     [CharacterId.VLODIMIR]: 13,
                     [CharacterId.DUDU]: 8,
-                    [CharacterId.CERYS]: 5,
-                    [CharacterId.UMA]: 2
+                    [CharacterId.CERYS]: 21, // Boosted
+                    [CharacterId.UMA]: 13, // Boosted
+                    [CharacterId.ANGOULEME]: 8,
+                    [CharacterId.ROACH]: 5
                 }
             },
             {
@@ -642,7 +679,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.YENNEFER]: 21,
                     [CharacterId.TRISS]: 13,
                     [CharacterId.RENFRI]: 8,
-                    [CharacterId.TISSAIA]: 5
+                    [CharacterId.TISSAIA]: 21,
+                    [CharacterId.SHEALA]: 13,
+                    [CharacterId.PAVETTA]: 34
                 }
             },
             {
@@ -673,7 +712,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.AVALLACH]: 55,
                     [CharacterId.DUDU]: 34,
                     [CharacterId.GAUNTER]: 21,
-                    [CharacterId.ROACH]: 13
+                    [CharacterId.ROACH]: 13,
+                    [CharacterId.MOUSESACK]: 8
                 }
             },
             {
@@ -682,8 +722,11 @@ export const QUESTIONS_DATA: Question[] = [
                 weights: {
                     [CharacterId.IMLERITH]: 89,
                     [CharacterId.EREDIN]: 55,
-                    [CharacterId.IORVETH]: 21,
-                    [CharacterId.HJALMAR]: 21
+                    [CharacterId.IORVETH]: 55, // Boosted
+                    [CharacterId.HJALMAR]: 21,
+                    [CharacterId.BONHART]: 34,
+                    [CharacterId.LETHO]: 13,
+                    [CharacterId.CRACH]: 55
                 }
             },
             {
@@ -693,7 +736,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.EREDIN]: 89,
                     [CharacterId.IMLERITH]: 55,
                     [CharacterId.GAUNTER]: 34,
-                    [CharacterId.DETTLAFF]: 21
+                    [CharacterId.DETTLAFF]: 21,
+                    [CharacterId.VILGEFORTZ]: 13
                 }
             },
             {
@@ -704,7 +748,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CIRI]: 55,
                     [CharacterId.PRISCILLA]: 8,
                     [CharacterId.JASKIER]: 5,
-                    [CharacterId.MOUSESACK]: 2
+                    [CharacterId.MOUSESACK]: 21,
+                    [CharacterId.PAVETTA]: 13,
+                    [CharacterId.UMA]: 5
                 }
             },
         ]
@@ -722,7 +768,9 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.OLGIERD]: 34,
                     [CharacterId.GAUNTER]: 21,
                     [CharacterId.DETTLAFF]: 13,
-                    [CharacterId.RADOVID]: 8
+                    [CharacterId.RADOVID]: 8,
+                    [CharacterId.CALANTHE]: 21,
+                    [CharacterId.BONHART]: 13
                 }
             },
             {
@@ -735,7 +783,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.VES]: 21,
                     [CharacterId.CAHIR]: 13,
                     [CharacterId.UMA]: 8,
-                    [CharacterId.CERYS]: 8
+                    [CharacterId.CERYS]: 55, // Boosted
+                    [CharacterId.CRACH]: 21
                 }
             },
             {
@@ -746,10 +795,10 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CIRI]: 55,
                     [CharacterId.YENNEFER]: 34,
                     [CharacterId.TRISS]: 21,
-                    [CharacterId.VILGEFORTZ]: 13,
+                    [CharacterId.VILGEFORTZ]: 34, // Boosted
                     [CharacterId.PHILIPPA]: 8,
-                    [CharacterId.TISSAIA]: 5,
-                    [CharacterId.SHEALA]: 3,
+                    [CharacterId.TISSAIA]: 21,
+                    [CharacterId.SHEALA]: 13,
                     [CharacterId.MARGARITA]: 2
                 }
             },
@@ -765,7 +814,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.ANGOULEME]: 8,
                     [CharacterId.VESEMIR]: 5,
                     [CharacterId.SHANI]: 8,
-                    [CharacterId.IORVETH]: 5,
+                    [CharacterId.IORVETH]: 21, // Boosted
                     [CharacterId.CRACH]: 3,
                     [CharacterId.HJALMAR]: 2
                 }
