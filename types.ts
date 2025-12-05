@@ -57,7 +57,7 @@ export enum CharacterId {
 export interface Option {
   id: string;
   text: string;
-  targetCharacter: CharacterId;
+  weights: Partial<Record<CharacterId, number>>;
 }
 
 export interface Question {
