@@ -264,7 +264,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [CharacterId.CAHIR]: 55,
                     [CharacterId.FRINGILLA]: 21,
                     [CharacterId.LETHO]: 55, // Boosted
-                    [CharacterId.EREDIN]: 34,
+                    [CharacterId.EREDIN]: 55, // Boosted
                     [CharacterId.RADOVID]: 34,
                     [CharacterId.VILGEFORTZ]: 21
                 }
@@ -706,51 +706,64 @@ export const QUESTIONS_DATA: Question[] = [
         options: [
             {
                 id: "q12_a",
-                text: "Ума-ума-ума...",
+                text: "Верный друг, который всегда застрянет в заборе ради тебя.",
                 weights: {
-                    [CharacterId.UMA]: 89,
-                    [CharacterId.AVALLACH]: 55,
-                    [CharacterId.DUDU]: 34,
-                    [CharacterId.GAUNTER]: 21,
-                    [CharacterId.ROACH]: 13,
-                    [CharacterId.MOUSESACK]: 8
+                    [CharacterId.ROACH]: 55, // Restored
+                    [CharacterId.VESEMIR]: 55,
+                    [CharacterId.SHANI]: 55,
+                    [CharacterId.REGIS]: 34,
+                    [CharacterId.CAHIR]: 34,
+                    [CharacterId.UMA]: 89, // Top
+                    [CharacterId.MILVA]: 21,
+                    [CharacterId.ANGOULEME]: 21,
+                    [CharacterId.VES]: 89 // Boosted to Top
                 }
             },
             {
                 id: "q12_b",
-                text: "Жестокий эльф с огромной булавой.",
+                text: "Душа компании: могу спеть, могу выпить, могу вселиться в ведьмака.",
                 weights: {
-                    [CharacterId.IMLERITH]: 89,
-                    [CharacterId.EREDIN]: 55,
-                    [CharacterId.IORVETH]: 55, // Boosted
+                    [CharacterId.VLODIMIR]: 89,
+                    [CharacterId.CRACH]: 89,
+                    [CharacterId.PRISCILLA]: 89, // Boosted to Top
+                    [CharacterId.DUDU]: 55,
+                    [CharacterId.JASKIER]: 34,
+                    [CharacterId.ZOLTAN]: 34,
+                    [CharacterId.YARPEN]: 21,
                     [CharacterId.HJALMAR]: 21,
-                    [CharacterId.BONHART]: 34,
-                    [CharacterId.LETHO]: 13,
-                    [CharacterId.CRACH]: 55
+                    [CharacterId.OLGIERD]: 21,
+                    [CharacterId.CERYS]: 13
                 }
             },
             {
                 id: "q12_c",
-                text: "Король кошмаров в скелетоподобной броне.",
+                text: "Я знаю, как лучше, и у меня есть список тех, кто не согласен...",
                 weights: {
-                    [CharacterId.EREDIN]: 89,
-                    [CharacterId.IMLERITH]: 55,
-                    [CharacterId.GAUNTER]: 34,
-                    [CharacterId.DETTLAFF]: 21,
-                    [CharacterId.VILGEFORTZ]: 13
+                    [CharacterId.FRINGILLA]: 89,
+                    [CharacterId.AVALLACH]: 89, // Boosted (was 0%)
+                    [CharacterId.PHILIPPA]: 55,
+                    [CharacterId.THALER]: 55,
+                    [CharacterId.FOLTEST]: 34, // Boosted
+                    [CharacterId.TRISS]: 34,
+                    [CharacterId.DIJKSTRA]: 34,
+                    [CharacterId.SHEALA]: 21,
+                    [CharacterId.KEIRA]: 21,
+                    [CharacterId.EMHYR]: 13,
+                    [CharacterId.RADOVID]: 13
                 }
             },
             {
                 id: "q12_d",
-                text: "Загадочный эльф, рисующий бизонов.",
+                text: "В глубине души я — котик. Просто очень большой, клыкастый и люблю играть с едой.",
                 weights: {
-                    [CharacterId.AVALLACH]: 89,
-                    [CharacterId.CIRI]: 55,
-                    [CharacterId.PRISCILLA]: 8,
-                    [CharacterId.JASKIER]: 5,
-                    [CharacterId.MOUSESACK]: 21,
-                    [CharacterId.PAVETTA]: 13,
-                    [CharacterId.UMA]: 5
+                    [CharacterId.DETTLAFF]: 55, // Lowered to give Eredin space
+                    [CharacterId.EREDIN]: 89,
+                    [CharacterId.IMLERITH]: 55,
+                    [CharacterId.BONHART]: 55,
+                    [CharacterId.CIRI]: 55, // Boosted
+                    [CharacterId.GAUNTER]: 34,
+                    [CharacterId.LETHO]: 34,
+                    [CharacterId.VILGEFORTZ]: 21,
                 }
             },
         ]
