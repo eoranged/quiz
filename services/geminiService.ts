@@ -28,6 +28,11 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
         }
     });
 
+    // Debug: Log sorted weights for debugging
+    const sortedWeights = Object.entries(scores)
+        .sort(([, a], [, b]) => (b || 0) - (a || 0));
+    console.log("🏆 Character Weights (Sorted):", sortedWeights);
+
     let maxScore = -1;
     let winner = CharacterId.GERALT;
 
