@@ -54,10 +54,21 @@ export enum CharacterId {
   YARPEN = 'yarpen'
 }
 
+export enum Trait {
+  EMPATHY = 'empathy',
+  IMPULSIVENESS = 'impulsiveness',
+  AMBITION = 'ambition',
+  INTELLECT = 'intellect',
+  CYNICISM = 'cynicism',
+  EXTROVERSION = 'extroversion'
+}
+
+export type TraitProfile = Record<Trait, number>;
+
 export interface Option {
   id: string;
   text: string;
-  weights: Partial<Record<CharacterId, number>>;
+  traitModifiers: Partial<TraitProfile>;
 }
 
 export interface Question {
@@ -74,6 +85,7 @@ export interface QuizResult {
   quote: string;
   alignment: string;
   colorTheme: string;
+  traits: TraitProfile;
 }
 
 export enum AppState {

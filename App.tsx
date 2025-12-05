@@ -156,6 +156,20 @@ const App: React.FC = () => {
                       result={char}
                       avatarStyle={getAvatarStyle(char.id)}
                     />
+
+                    {/* Traits Display - Dev View Only */}
+                    <div className="mt-6 max-w-xl mx-auto">
+                      <h4 className="text-slate-500 text-xs uppercase tracking-widest text-center mb-4 font-bold">Характеристики</h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 px-4">
+                        {Object.entries(char.traits).map(([trait, value]) => (
+                          <div key={trait} className="flex flex-col bg-slate-800/50 border border-slate-700 p-3 rounded text-center">
+                            <span className="text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-1">{trait}</span>
+                            <span className="text-amber-500 font-mono text-lg">{value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
                   </div>
                 ))}
               </div>
@@ -256,6 +270,9 @@ const App: React.FC = () => {
 
       <footer className="mt-8 text-slate-600 text-sm text-center">
         <p className="text-xs mt-1 opacity-50">Неофициальный фанатский проект</p>
+        <div className="mt-2">
+          <a href="#dev-view-all-characters" className="text-[10px] text-slate-800 hover:text-slate-600 transition-colors">Dev View</a>
+        </div>
       </footer>
     </div>
   );
