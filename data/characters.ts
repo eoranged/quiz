@@ -11,12 +11,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Истинно нейтральный (почти)",
     colorTheme: "text-slate-400",
     traits: {
-        [Trait.EMPATHY]: 825,
-        [Trait.IMPULSIVENESS]: 350,
-        [Trait.AMBITION]: 900,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 950,
-        [Trait.EXTROVERSION]: 260,
+      [Trait.EMPATHY]: 150,
+      [Trait.IMPULSIVENESS]: 200,
+      [Trait.AMBITION]: 300,
+      [Trait.INTELLECT]: 700,
+      [Trait.CYNICISM]: 800,
+      [Trait.EXTROVERSION]: 100,
     }
   },
   [CharacterId.YENNEFER]: {
@@ -28,12 +28,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-великолепный",
     colorTheme: "text-purple-400",
     traits: {
-        [Trait.EMPATHY]: 375,
-        [Trait.IMPULSIVENESS]: 625,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 400,
+      [Trait.EMPATHY]: 200,
+      [Trait.IMPULSIVENESS]: 300,
+      [Trait.AMBITION]: 900,
+      [Trait.INTELLECT]: 900,
+      [Trait.CYNICISM]: 700,
+      [Trait.EXTROVERSION]: 400,
     }
   },
   [CharacterId.JASKIER]: {
@@ -45,12 +45,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-бесполезный",
     colorTheme: "text-rose-400",
     traits: {
-        [Trait.EMPATHY]: 925,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 580,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 420,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 800,
+      [Trait.IMPULSIVENESS]: 800,
+      [Trait.AMBITION]: 600,
+      [Trait.INTELLECT]: 600,
+      [Trait.CYNICISM]: 200,
+      [Trait.EXTROVERSION]: 900,
     }
   },
   [CharacterId.ROACH]: {
@@ -62,12 +62,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Истинно-лошадиный",
     colorTheme: "text-amber-700",
     traits: {
-        [Trait.EMPATHY]: 600,
-        [Trait.IMPULSIVENESS]: 525,
-        [Trait.AMBITION]: 850,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 875,
-        [Trait.EXTROVERSION]: 610,
+      [Trait.EMPATHY]: 100,
+      [Trait.IMPULSIVENESS]: 400,
+      [Trait.AMBITION]: 0,
+      [Trait.INTELLECT]: 100, // Horse smarts
+      [Trait.CYNICISM]: 500,
+      [Trait.EXTROVERSION]: 200,
     }
   },
   [CharacterId.CIRI]: {
@@ -79,12 +79,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-добрый",
     colorTheme: "text-emerald-400",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 355,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 495,
-        [Trait.EXTROVERSION]: 935,
+      [Trait.EMPATHY]: 700,
+      [Trait.IMPULSIVENESS]: 800,
+      [Trait.AMBITION]: 500,
+      [Trait.INTELLECT]: 500,
+      [Trait.CYNICISM]: 400,
+      [Trait.EXTROVERSION]: 600,
     }
   },
   [CharacterId.TRISS]: {
@@ -96,12 +96,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-добрый",
     colorTheme: "text-orange-500",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 505,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 645,
-        [Trait.EXTROVERSION]: 760,
+      [Trait.EMPATHY]: 800,
+      [Trait.IMPULSIVENESS]: 400,
+      [Trait.AMBITION]: 400,
+      [Trait.INTELLECT]: 700,
+      [Trait.CYNICISM]: 100,
+      [Trait.EXTROVERSION]: 600,
     }
   },
   [CharacterId.VESEMIR]: {
@@ -113,12 +113,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушный дед",
     colorTheme: "text-stone-400",
     traits: {
-        [Trait.EMPATHY]: 950,
-        [Trait.IMPULSIVENESS]: 500,
-        [Trait.AMBITION]: 850,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 875,
-        [Trait.EXTROVERSION]: 460,
+      [Trait.EMPATHY]: 500, // Kindly old mentor
+      [Trait.IMPULSIVENESS]: 100,
+      [Trait.AMBITION]: 200,
+      [Trait.INTELLECT]: 800,
+      [Trait.CYNICISM]: 400,
+      [Trait.EXTROVERSION]: 200,
     }
   },
   [CharacterId.ZOLTAN]: {
@@ -130,12 +130,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-пьяный",
     colorTheme: "text-red-700",
     traits: {
-        [Trait.EMPATHY]: 925,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 455,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 620,
-        [Trait.EXTROVERSION]: 985,
+      [Trait.EMPATHY]: 434,
+      [Trait.IMPULSIVENESS]: 403,
+      [Trait.AMBITION]: 362,
+      [Trait.INTELLECT]: 367,
+      [Trait.CYNICISM]: 44,
+      [Trait.EXTROVERSION]: 498,
     }
   },
   [CharacterId.REGIS]: {
@@ -147,12 +147,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-мертвый",
     colorTheme: "text-indigo-400",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 525,
-        [Trait.AMBITION]: 850,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 875,
-        [Trait.EXTROVERSION]: 435,
+      [Trait.EMPATHY]: 700, // Highly empathetic vampire
+      [Trait.IMPULSIVENESS]: 100,
+      [Trait.AMBITION]: 200,
+      [Trait.INTELLECT]: 950,
+      [Trait.CYNICISM]: 300,
+      [Trait.EXTROVERSION]: 300,
     }
   },
   [CharacterId.LAMBERT]: {
@@ -164,12 +164,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-вредный",
     colorTheme: "text-yellow-600",
     traits: {
-        [Trait.EMPATHY]: 550,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 530,
-        [Trait.INTELLECT]: 850,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 660,
+      [Trait.EMPATHY]: -293,
+      [Trait.IMPULSIVENESS]: 421,
+      [Trait.AMBITION]: 223,
+      [Trait.INTELLECT]: 132,
+      [Trait.CYNICISM]: 896,
+      [Trait.EXTROVERSION]: 138,
     }
   },
   [CharacterId.ESKEL]: {
@@ -181,12 +181,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-спокойный",
     colorTheme: "text-teal-600",
     traits: {
-        [Trait.EMPATHY]: 625,
-        [Trait.IMPULSIVENESS]: 400,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 975,
-        [Trait.CYNICISM]: 925,
-        [Trait.EXTROVERSION]: 410,
+      [Trait.EMPATHY]: 300,
+      [Trait.IMPULSIVENESS]: 300,
+      [Trait.AMBITION]: 200,
+      [Trait.INTELLECT]: 500,
+      [Trait.CYNICISM]: 500,
+      [Trait.EXTROVERSION]: 200,
     }
   },
   [CharacterId.KEIRA]: {
@@ -198,12 +198,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Гламурно-нейтральный",
     colorTheme: "text-pink-400",
     traits: {
-        [Trait.EMPATHY]: 625,
-        [Trait.IMPULSIVENESS]: 775,
-        [Trait.AMBITION]: 900,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 720,
-        [Trait.EXTROVERSION]: 660,
+      [Trait.EMPATHY]: 300,
+      [Trait.IMPULSIVENESS]: 600, // Impulsive
+      [Trait.AMBITION]: 600,
+      [Trait.INTELLECT]: 600, // Smart but not Yen level
+      [Trait.CYNICISM]: 400,
+      [Trait.EXTROVERSION]: 600,
     }
   },
   [CharacterId.DIJKSTRA]: {
@@ -215,12 +215,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-хитрый",
     colorTheme: "text-blue-800",
     traits: {
-        [Trait.EMPATHY]: 325,
-        [Trait.IMPULSIVENESS]: 300,
-        [Trait.AMBITION]: 975,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 760,
+      [Trait.EMPATHY]: 50,
+      [Trait.IMPULSIVENESS]: 200,
+      [Trait.AMBITION]: 800,
+      [Trait.INTELLECT]: 700,
+      [Trait.CYNICISM]: 900, // Super cynical
+      [Trait.EXTROVERSION]: 500,
     }
   },
   [CharacterId.EMHYR]: {
@@ -232,12 +232,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-злой",
     colorTheme: "text-yellow-500",
     traits: {
-        [Trait.EMPATHY]: 200,
-        [Trait.IMPULSIVENESS]: 200,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 285,
+      [Trait.EMPATHY]: 0,
+      [Trait.IMPULSIVENESS]: 100,
+      [Trait.AMBITION]: 1000, // Maximum ambition
+      [Trait.INTELLECT]: 800,
+      [Trait.CYNICISM]: 900,
+      [Trait.EXTROVERSION]: 200,
     }
   },
   [CharacterId.ROCHE]: {
@@ -249,12 +249,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Патриотично-агрессивный",
     colorTheme: "text-blue-600",
     traits: {
-        [Trait.EMPATHY]: 500,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 850,
-        [Trait.INTELLECT]: 875,
-        [Trait.CYNICISM]: 875,
-        [Trait.EXTROVERSION]: 535,
+      [Trait.EMPATHY]: 100,
+      [Trait.IMPULSIVENESS]: 700, // Hot-headed patriot
+      [Trait.AMBITION]: 700,
+      [Trait.INTELLECT]: 400, // Soldier, not scholar
+      [Trait.CYNICISM]: 500,
+      [Trait.EXTROVERSION]: 400,
     }
   },
   [CharacterId.IORVETH]: {
@@ -266,12 +266,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-повстанческий",
     colorTheme: "text-green-700",
     traits: {
-        [Trait.EMPATHY]: 275,
-        [Trait.IMPULSIVENESS]: 700,
-        [Trait.AMBITION]: 950,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 310,
+      [Trait.EMPATHY]: -268,
+      [Trait.IMPULSIVENESS]: 237,
+      [Trait.AMBITION]: 550,
+      [Trait.INTELLECT]: 623,
+      [Trait.CYNICISM]: 822,
+      [Trait.EXTROVERSION]: 47,
     }
   },
   [CharacterId.GAUNTER]: {
@@ -283,12 +283,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Дьявольски-нейтральный",
     colorTheme: "text-amber-900",
     traits: {
-        [Trait.EMPATHY]: 0,
-        [Trait.IMPULSIVENESS]: 575,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 975,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 685,
+      [Trait.EMPATHY]: -288,
+      [Trait.IMPULSIVENESS]: 118,
+      [Trait.AMBITION]: 152,
+      [Trait.INTELLECT]: 580,
+      [Trait.CYNICISM]: 910,
+      [Trait.EXTROVERSION]: -27,
     }
   },
   [CharacterId.SHANI]: {
@@ -300,12 +300,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-добрый",
     colorTheme: "text-red-400",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 805,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 345,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 167,
+      [Trait.IMPULSIVENESS]: 202,
+      [Trait.AMBITION]: 190,
+      [Trait.INTELLECT]: 429,
+      [Trait.CYNICISM]: 550,
+      [Trait.EXTROVERSION]: 323,
     }
   },
   [CharacterId.PHILIPPA]: {
@@ -317,12 +317,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-властный",
     colorTheme: "text-purple-700",
     traits: {
-        [Trait.EMPATHY]: 125,
-        [Trait.IMPULSIVENESS]: 550,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 975,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 510,
+      [Trait.EMPATHY]: -124,
+      [Trait.IMPULSIVENESS]: 103,
+      [Trait.AMBITION]: 430,
+      [Trait.INTELLECT]: 326,
+      [Trait.CYNICISM]: 875,
+      [Trait.EXTROVERSION]: 194,
     }
   },
   [CharacterId.VILGEFORTZ]: {
@@ -334,12 +334,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-злой",
     colorTheme: "text-orange-800",
     traits: {
-        [Trait.EMPATHY]: 250,
-        [Trait.IMPULSIVENESS]: 500,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 535,
+      [Trait.EMPATHY]: -89,
+      [Trait.IMPULSIVENESS]: 271,
+      [Trait.AMBITION]: 573,
+      [Trait.INTELLECT]: 70,
+      [Trait.CYNICISM]: 859,
+      [Trait.EXTROVERSION]: 7,
     }
   },
   [CharacterId.CAHIR]: {
@@ -351,12 +351,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-упертый",
     colorTheme: "text-slate-500",
     traits: {
-        [Trait.EMPATHY]: 925,
-        [Trait.IMPULSIVENESS]: 750,
-        [Trait.AMBITION]: 900,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 720,
-        [Trait.EXTROVERSION]: 410,
+      [Trait.EMPATHY]: 380,
+      [Trait.IMPULSIVENESS]: 450,
+      [Trait.AMBITION]: 313,
+      [Trait.INTELLECT]: 365,
+      [Trait.CYNICISM]: 274,
+      [Trait.EXTROVERSION]: 117,
     }
   },
   [CharacterId.MILVA]: {
@@ -368,12 +368,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-агрессивный",
     colorTheme: "text-green-600",
     traits: {
-        [Trait.EMPATHY]: 550,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 505,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 585,
+      [Trait.EMPATHY]: 186,
+      [Trait.IMPULSIVENESS]: 443,
+      [Trait.AMBITION]: 268,
+      [Trait.INTELLECT]: 87,
+      [Trait.CYNICISM]: 584,
+      [Trait.EXTROVERSION]: -155,
     }
   },
   [CharacterId.ANGOULEME]: {
@@ -385,12 +385,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-веселый",
     colorTheme: "text-yellow-400",
     traits: {
-        [Trait.EMPATHY]: 425,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 455,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 745,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 192,
+      [Trait.IMPULSIVENESS]: 711,
+      [Trait.AMBITION]: 454,
+      [Trait.INTELLECT]: 20,
+      [Trait.CYNICISM]: 221,
+      [Trait.EXTROVERSION]: 589,
     }
   },
   [CharacterId.BONHART]: {
@@ -402,12 +402,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Истинно-злой",
     colorTheme: "text-gray-800",
     traits: {
-        [Trait.EMPATHY]: 100,
-        [Trait.IMPULSIVENESS]: 600,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 975,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 335,
+      [Trait.EMPATHY]: -372,
+      [Trait.IMPULSIVENESS]: 45,
+      [Trait.AMBITION]: 378,
+      [Trait.INTELLECT]: 327,
+      [Trait.CYNICISM]: 1093,
+      [Trait.EXTROVERSION]: -194,
     }
   },
   [CharacterId.FRINGILLA]: {
@@ -419,12 +419,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-нейтральный",
     colorTheme: "text-indigo-700",
     traits: {
-        [Trait.EMPATHY]: 525,
-        [Trait.IMPULSIVENESS]: 650,
-        [Trait.AMBITION]: 975,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 900,
-        [Trait.EXTROVERSION]: 610,
+      [Trait.EMPATHY]: 138,
+      [Trait.IMPULSIVENESS]: 206,
+      [Trait.AMBITION]: 455,
+      [Trait.INTELLECT]: 622,
+      [Trait.CYNICISM]: 453,
+      [Trait.EXTROVERSION]: -32,
     }
   },
   [CharacterId.MARGARITA]: {
@@ -436,12 +436,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-заботливый",
     colorTheme: "text-yellow-300",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 700,
-        [Trait.AMBITION]: 680,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 875,
-        [Trait.EXTROVERSION]: 660,
+      [Trait.EMPATHY]: 470,
+      [Trait.IMPULSIVENESS]: 97,
+      [Trait.AMBITION]: 361,
+      [Trait.INTELLECT]: 589,
+      [Trait.CYNICISM]: 249,
+      [Trait.EXTROVERSION]: 181,
     }
   },
   [CharacterId.SHEALA]: {
@@ -453,12 +453,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-холодный",
     colorTheme: "text-slate-600",
     traits: {
-        [Trait.EMPATHY]: 150,
-        [Trait.IMPULSIVENESS]: 550,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 210,
+      [Trait.EMPATHY]: -440,
+      [Trait.IMPULSIVENESS]: -139,
+      [Trait.AMBITION]: 498,
+      [Trait.INTELLECT]: 774,
+      [Trait.CYNICISM]: 1027,
+      [Trait.EXTROVERSION]: -204,
     }
   },
   [CharacterId.TISSAIA]: {
@@ -470,12 +470,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-строгий",
     colorTheme: "text-slate-800",
     traits: {
-        [Trait.EMPATHY]: 450,
-        [Trait.IMPULSIVENESS]: 525,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 260,
+      [Trait.EMPATHY]: -4,
+      [Trait.IMPULSIVENESS]: 51,
+      [Trait.AMBITION]: 493,
+      [Trait.INTELLECT]: 425,
+      [Trait.CYNICISM]: 807,
+      [Trait.EXTROVERSION]: -165,
     }
   },
   [CharacterId.DUDU]: {
@@ -487,12 +487,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-добрый",
     colorTheme: "text-teal-500",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 180,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 645,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 44,
+      [Trait.IMPULSIVENESS]: 226,
+      [Trait.AMBITION]: 320,
+      [Trait.INTELLECT]: 200,
+      [Trait.CYNICISM]: 380,
+      [Trait.EXTROVERSION]: 143,
     }
   },
   [CharacterId.PRISCILLA]: {
@@ -504,12 +504,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-творческий",
     colorTheme: "text-pink-300",
     traits: {
-        [Trait.EMPATHY]: 925,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 900,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 245,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 125,
+      [Trait.IMPULSIVENESS]: 39,
+      [Trait.AMBITION]: 624,
+      [Trait.INTELLECT]: 441,
+      [Trait.CYNICISM]: 580,
+      [Trait.EXTROVERSION]: 184,
     }
   },
   [CharacterId.DETTLAFF]: {
@@ -521,12 +521,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-эмоциональный",
     colorTheme: "text-red-900",
     traits: {
-        [Trait.EMPATHY]: 450,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 630,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 435,
+      [Trait.EMPATHY]: 31,
+      [Trait.IMPULSIVENESS]: 594,
+      [Trait.AMBITION]: 173,
+      [Trait.INTELLECT]: -157,
+      [Trait.CYNICISM]: 691,
+      [Trait.EXTROVERSION]: 18,
     }
   },
   [CharacterId.SYANNA]: {
@@ -538,12 +538,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-мстительный",
     colorTheme: "text-red-600",
     traits: {
-        [Trait.EMPATHY]: 200,
-        [Trait.IMPULSIVENESS]: 550,
-        [Trait.AMBITION]: 950,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 510,
+      [Trait.EMPATHY]: -396,
+      [Trait.IMPULSIVENESS]: 357,
+      [Trait.AMBITION]: 633,
+      [Trait.INTELLECT]: 381,
+      [Trait.CYNICISM]: 870,
+      [Trait.EXTROVERSION]: 344,
     }
   },
   [CharacterId.ANNA_HENRIETTA]: {
@@ -555,12 +555,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-капризный",
     colorTheme: "text-amber-500",
     traits: {
-        [Trait.EMPATHY]: 700,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 800,
-        [Trait.CYNICISM]: 420,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 53,
+      [Trait.IMPULSIVENESS]: 324,
+      [Trait.AMBITION]: 540,
+      [Trait.INTELLECT]: 40,
+      [Trait.CYNICISM]: 634,
+      [Trait.EXTROVERSION]: 323,
     }
   },
   [CharacterId.OLGIERD]: {
@@ -572,12 +572,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-депрессивный",
     colorTheme: "text-orange-600",
     traits: {
-        [Trait.EMPATHY]: 175,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 755,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 560,
+      [Trait.EMPATHY]: -315,
+      [Trait.IMPULSIVENESS]: 531,
+      [Trait.AMBITION]: 597,
+      [Trait.INTELLECT]: -71,
+      [Trait.CYNICISM]: 836,
+      [Trait.EXTROVERSION]: 355,
     }
   },
   [CharacterId.VLODIMIR]: {
@@ -589,12 +589,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-призрачный",
     colorTheme: "text-blue-300",
     traits: {
-        [Trait.EMPATHY]: 375,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 755,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 595,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 204,
+      [Trait.IMPULSIVENESS]: 815,
+      [Trait.AMBITION]: 198,
+      [Trait.INTELLECT]: -253,
+      [Trait.CYNICISM]: 340,
+      [Trait.EXTROVERSION]: 336,
     }
   },
   [CharacterId.CRACH]: {
@@ -606,12 +606,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-громкий",
     colorTheme: "text-orange-700",
     traits: {
-        [Trait.EMPATHY]: 650,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 900,
-        [Trait.INTELLECT]: 625,
-        [Trait.CYNICISM]: 645,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 335,
+      [Trait.IMPULSIVENESS]: 417,
+      [Trait.AMBITION]: 509,
+      [Trait.INTELLECT]: 46,
+      [Trait.CYNICISM]: 343,
+      [Trait.EXTROVERSION]: 249,
     }
   },
   [CharacterId.CERYS]: {
@@ -623,12 +623,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-мудрый",
     colorTheme: "text-red-500",
     traits: {
-        [Trait.EMPATHY]: 975,
-        [Trait.IMPULSIVENESS]: 800,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 975,
-        [Trait.CYNICISM]: 820,
-        [Trait.EXTROVERSION]: 485,
+      [Trait.EMPATHY]: 142,
+      [Trait.IMPULSIVENESS]: 73,
+      [Trait.AMBITION]: 410,
+      [Trait.INTELLECT]: 573,
+      [Trait.CYNICISM]: 181,
+      [Trait.EXTROVERSION]: 301,
     }
   },
   [CharacterId.HJALMAR]: {
@@ -640,12 +640,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-героический",
     colorTheme: "text-orange-500",
     traits: {
-        [Trait.EMPATHY]: 550,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 950,
-        [Trait.INTELLECT]: 625,
-        [Trait.CYNICISM]: 620,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: -86,
+      [Trait.IMPULSIVENESS]: 633,
+      [Trait.AMBITION]: 448,
+      [Trait.INTELLECT]: 100,
+      [Trait.CYNICISM]: 556,
+      [Trait.EXTROVERSION]: 596,
     }
   },
   [CharacterId.MOUSESACK]: {
@@ -657,12 +657,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Истинно-нейтральный",
     colorTheme: "text-green-800",
     traits: {
-        [Trait.EMPATHY]: 500,
-        [Trait.IMPULSIVENESS]: 600,
-        [Trait.AMBITION]: 775,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 610,
+      [Trait.EMPATHY]: 316,
+      [Trait.IMPULSIVENESS]: 86,
+      [Trait.AMBITION]: 59,
+      [Trait.INTELLECT]: 457,
+      [Trait.CYNICISM]: 430,
+      [Trait.EXTROVERSION]: -107,
     }
   },
   [CharacterId.RADOVID]: {
@@ -674,12 +674,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-безумный",
     colorTheme: "text-red-800",
     traits: {
-        [Trait.EMPATHY]: 50,
-        [Trait.IMPULSIVENESS]: 650,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 400,
+      [Trait.EMPATHY]: -291,
+      [Trait.IMPULSIVENESS]: 372,
+      [Trait.AMBITION]: 358,
+      [Trait.INTELLECT]: -15,
+      [Trait.CYNICISM]: 1009,
+      [Trait.EXTROVERSION]: -222,
     }
   },
   [CharacterId.FOLTEST]: {
@@ -691,12 +691,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-королевский",
     colorTheme: "text-blue-500",
     traits: {
-        [Trait.EMPATHY]: 675,
-        [Trait.IMPULSIVENESS]: 900,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 975,
-        [Trait.CYNICISM]: 620,
-        [Trait.EXTROVERSION]: 835,
+      [Trait.EMPATHY]: 77,
+      [Trait.IMPULSIVENESS]: 361,
+      [Trait.AMBITION]: 536,
+      [Trait.INTELLECT]: 338,
+      [Trait.CYNICISM]: 357,
+      [Trait.EXTROVERSION]: 489,
     }
   },
   [CharacterId.LETHO]: {
@@ -708,12 +708,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Нейтрально-прагматичный",
     colorTheme: "text-stone-600",
     traits: {
-        [Trait.EMPATHY]: 450,
-        [Trait.IMPULSIVENESS]: 550,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 260,
+      [Trait.EMPATHY]: 12,
+      [Trait.IMPULSIVENESS]: -85,
+      [Trait.AMBITION]: 131,
+      [Trait.INTELLECT]: 698,
+      [Trait.CYNICISM]: 736,
+      [Trait.EXTROVERSION]: -232,
     }
   },
   [CharacterId.VES]: {
@@ -725,12 +725,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-патриотичный",
     colorTheme: "text-blue-400",
     traits: {
-        [Trait.EMPATHY]: 675,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 480,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 720,
-        [Trait.EXTROVERSION]: 960,
+      [Trait.EMPATHY]: 128,
+      [Trait.IMPULSIVENESS]: 489,
+      [Trait.AMBITION]: 248,
+      [Trait.INTELLECT]: 531,
+      [Trait.CYNICISM]: 317,
+      [Trait.EXTROVERSION]: 377,
     }
   },
   [CharacterId.THALER]: {
@@ -742,12 +742,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Матерно-нейтральный",
     colorTheme: "text-gray-500",
     traits: {
-        [Trait.EMPATHY]: 450,
-        [Trait.IMPULSIVENESS]: 475,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 485,
+      [Trait.EMPATHY]: -164,
+      [Trait.IMPULSIVENESS]: 159,
+      [Trait.AMBITION]: 347,
+      [Trait.INTELLECT]: 714,
+      [Trait.CYNICISM]: 611,
+      [Trait.EXTROVERSION]: 267,
     }
   },
   [CharacterId.UMA]: {
@@ -759,12 +759,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-несчастный",
     colorTheme: "text-yellow-200",
     traits: {
-        [Trait.EMPATHY]: 900,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 505,
-        [Trait.INTELLECT]: 950,
-        [Trait.CYNICISM]: 595,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: 58,
+      [Trait.IMPULSIVENESS]: 499,
+      [Trait.AMBITION]: 135,
+      [Trait.INTELLECT]: 146,
+      [Trait.CYNICISM]: 635,
+      [Trait.EXTROVERSION]: 317,
     }
   },
   [CharacterId.IMLERITH]: {
@@ -776,12 +776,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-злой",
     colorTheme: "text-red-950",
     traits: {
-        [Trait.EMPATHY]: 25,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 675,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 635,
+      [Trait.EMPATHY]: -473,
+      [Trait.IMPULSIVENESS]: 264,
+      [Trait.AMBITION]: 626,
+      [Trait.INTELLECT]: 101,
+      [Trait.CYNICISM]: 1073,
+      [Trait.EXTROVERSION]: 104,
     }
   },
   [CharacterId.EREDIN]: {
@@ -793,12 +793,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Злой Властелин",
     colorTheme: "text-red-500",
     traits: {
-        [Trait.EMPATHY]: 0,
-        [Trait.IMPULSIVENESS]: 650,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 275,
+      [Trait.EMPATHY]: -459,
+      [Trait.IMPULSIVENESS]: -1,
+      [Trait.AMBITION]: 734,
+      [Trait.INTELLECT]: 449,
+      [Trait.CYNICISM]: 1033,
+      [Trait.EXTROVERSION]: 94,
     }
   },
   [CharacterId.AVALLACH]: {
@@ -810,12 +810,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Таинственно-нейтральный",
     colorTheme: "text-cyan-400",
     traits: {
-        [Trait.EMPATHY]: 375,
-        [Trait.IMPULSIVENESS]: 625,
-        [Trait.AMBITION]: 975,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 1000,
-        [Trait.EXTROVERSION]: 250,
+      [Trait.EMPATHY]: -116,
+      [Trait.IMPULSIVENESS]: -173,
+      [Trait.AMBITION]: 390,
+      [Trait.INTELLECT]: 956,
+      [Trait.CYNICISM]: 708,
+      [Trait.EXTROVERSION]: -18,
     }
   },
   [CharacterId.RENFRI]: {
@@ -827,12 +827,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-трагичный",
     colorTheme: "text-yellow-600",
     traits: {
-        [Trait.EMPATHY]: 275,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 900,
-        [Trait.INTELLECT]: 775,
-        [Trait.CYNICISM]: 950,
-        [Trait.EXTROVERSION]: 560,
+      [Trait.EMPATHY]: -197,
+      [Trait.IMPULSIVENESS]: 597,
+      [Trait.AMBITION]: 338,
+      [Trait.INTELLECT]: 130,
+      [Trait.CYNICISM]: 554,
+      [Trait.EXTROVERSION]: 206,
     }
   },
   [CharacterId.CALANTHE]: {
@@ -844,12 +844,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Законопослушно-яростный",
     colorTheme: "text-amber-600",
     traits: {
-        [Trait.EMPATHY]: 475,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 1000,
-        [Trait.INTELLECT]: 875,
-        [Trait.CYNICISM]: 570,
-        [Trait.EXTROVERSION]: 1000,
+      [Trait.EMPATHY]: -174,
+      [Trait.IMPULSIVENESS]: 351,
+      [Trait.AMBITION]: 344,
+      [Trait.INTELLECT]: 405,
+      [Trait.CYNICISM]: 725,
+      [Trait.EXTROVERSION]: 428,
     }
   },
   [CharacterId.PAVETTA]: {
@@ -861,12 +861,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-мощный",
     colorTheme: "text-green-300",
     traits: {
-        [Trait.EMPATHY]: 1000,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 580,
-        [Trait.INTELLECT]: 1000,
-        [Trait.CYNICISM]: 695,
-        [Trait.EXTROVERSION]: 760,
+      [Trait.EMPATHY]: 410,
+      [Trait.IMPULSIVENESS]: 434,
+      [Trait.AMBITION]: 21,
+      [Trait.INTELLECT]: 50,
+      [Trait.CYNICISM]: 279,
+      [Trait.EXTROVERSION]: 39,
     }
   },
   [CharacterId.YARPEN]: {
@@ -878,12 +878,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     alignment: "Хаотично-боевой",
     colorTheme: "text-red-600",
     traits: {
-        [Trait.EMPATHY]: 750,
-        [Trait.IMPULSIVENESS]: 1000,
-        [Trait.AMBITION]: 630,
-        [Trait.INTELLECT]: 850,
-        [Trait.CYNICISM]: 950,
-        [Trait.EXTROVERSION]: 785,
+      [Trait.EMPATHY]: 232,
+      [Trait.IMPULSIVENESS]: 573,
+      [Trait.AMBITION]: 164,
+      [Trait.INTELLECT]: 99,
+      [Trait.CYNICISM]: 322,
+      [Trait.EXTROVERSION]: 385,
     }
   },
 };
