@@ -18,7 +18,9 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
         [Trait.AMBITION]: 530,
         [Trait.INTELLECT]: 700,
         [Trait.CYNICISM]: 520,
-        [Trait.EXTROVERSION]: 510
+        [Trait.EXTROVERSION]: 510,
+        [Trait.MAGIC]: 500,
+        [Trait.ORDER]: 500
     };
 
     // 2. Apply Modifiers from Answers
@@ -38,7 +40,7 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
 
     console.log("👤 Player Trait Profile:", playerTraits);
 
-    // 3. Find Closest Character (Euclidean Distance)
+    // 3. Find Closest Character (Euclidean Distance with Weights)
     let minDistance = Infinity;
     let closestCharacter = CharacterId.GERALT;
 
@@ -47,8 +49,17 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
 
         let distanceSquared = 0;
         Object.values(Trait).forEach(trait => {
-            const diff = (playerTraits[trait] || 500) - (character.traits[trait] || 500);
-            distanceSquared += diff * diff;
+            const playerVal = playerTraits[trait] !== undefined ? playerTraits[trait] : 500;
+            const charVal = character.traits[trait] !== undefined ? character.traits[trait] : 500;
+            const diff = playerVal - charVal;
+
+            // Apply Signature Weight multiplier if present
+            let weight = 1;
+            if (character.signatureWeights && character.signatureWeights[trait]) {
+                weight = character.signatureWeights[trait]!;
+            }
+
+            distanceSquared += (diff * weight) * (diff * weight);
         });
 
         const distance = Math.sqrt(distanceSquared);

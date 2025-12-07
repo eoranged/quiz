@@ -14,7 +14,9 @@ const calculateResult = (answers: Record<string, string>) => {
         [Trait.AMBITION]: 530,
         [Trait.INTELLECT]: 700,
         [Trait.CYNICISM]: 520,
-        [Trait.EXTROVERSION]: 510
+        [Trait.EXTROVERSION]: 510,
+        [Trait.MAGIC]: 500,
+        [Trait.ORDER]: 500
     };
 
     // 2. Apply Modifiers from Answers
@@ -41,8 +43,16 @@ const calculateResult = (answers: Record<string, string>) => {
 
         let distanceSquared = 0;
         Object.values(Trait).forEach(trait => {
-            const diff = (playerTraits[trait] || 500) - (character.traits[trait] || 500);
-            distanceSquared += diff * diff;
+            const playerVal = playerTraits[trait] !== undefined ? playerTraits[trait] : 500;
+            const charVal = character.traits[trait] !== undefined ? character.traits[trait] : 500;
+            const diff = playerVal - charVal;
+
+            let weight = 1;
+            if (character.signatureWeights && character.signatureWeights[trait]) {
+                weight = character.signatureWeights[trait]!;
+            }
+
+            distanceSquared += (diff * weight) * (diff * weight);
         });
 
         const distance = Math.sqrt(distanceSquared);
@@ -105,7 +115,9 @@ charactersToTest.forEach(targetChar => {
         [Trait.AMBITION]: 530,
         [Trait.INTELLECT]: 700,
         [Trait.CYNICISM]: 520,
-        [Trait.EXTROVERSION]: 510
+        [Trait.EXTROVERSION]: 510,
+        [Trait.MAGIC]: 500,
+        [Trait.ORDER]: 500
     };
 
     QUESTIONS_DATA.forEach(question => {
@@ -130,9 +142,19 @@ charactersToTest.forEach(targetChar => {
             // Calculate distance to TARGET character traits
             let distSq = 0;
             Object.values(Trait).forEach(t => {
-                const diff = (tempTraits[t] || 500) - (targetTraits[t] || 500);
-                distSq += diff * diff;
+                const tempVal = tempTraits[t] !== undefined ? tempTraits[t]! : 500;
+                const targetVal = targetTraits[t] !== undefined ? targetTraits[t]! : 500;
+                const diff = tempVal - targetVal;
+
+                // IMPORTANT: Use weights of the TARGET character we are trying to become.
+                let weight = 1;
+                if (targetChar.signatureWeights && targetChar.signatureWeights[t]) {
+                    weight = targetChar.signatureWeights[t]!;
+                }
+
+                distSq += (diff * weight) * (diff * weight);
             });
+
 
             if (distSq < bestDistance) {
                 bestDistance = distSq;

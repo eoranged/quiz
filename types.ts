@@ -60,7 +60,9 @@ export enum Trait {
   AMBITION = 'ambition',
   INTELLECT = 'intellect',
   CYNICISM = 'cynicism',
-  EXTROVERSION = 'extroversion'
+  EXTROVERSION = 'extroversion',
+  MAGIC = 'magic',
+  ORDER = 'order'
 }
 
 export type TraitProfile = Record<Trait, number>;
@@ -86,6 +88,7 @@ export interface QuizResult {
   alignment: string;
   colorTheme: string;
   traits: TraitProfile;
+  signatureWeights?: Partial<TraitProfile>;
 }
 
 export enum AppState {

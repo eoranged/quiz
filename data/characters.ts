@@ -17,6 +17,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 700,
       [Trait.CYNICISM]: 800,
       [Trait.EXTROVERSION]: 100,
+      [Trait.MAGIC]: 400,
+      [Trait.ORDER]: 700,
+    },
+    signatureWeights: {
+      [Trait.CYNICISM]: 1.5,
+      [Trait.ORDER]: 1.5,
     }
   },
   [CharacterId.YENNEFER]: {
@@ -29,11 +35,17 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     colorTheme: "text-purple-400",
     traits: {
       [Trait.EMPATHY]: 200,
-      [Trait.IMPULSIVENESS]: 300,
+      [Trait.IMPULSIVENESS]: 300, // Disciplined soldier, mostly
       [Trait.AMBITION]: 900,
       [Trait.INTELLECT]: 900,
       [Trait.CYNICISM]: 700,
       [Trait.EXTROVERSION]: 400,
+      [Trait.MAGIC]: 950,
+      [Trait.ORDER]: 600,
+    },
+    signatureWeights: {
+      [Trait.AMBITION]: 2,
+      [Trait.MAGIC]: 2,
     }
   },
   [CharacterId.JASKIER]: {
@@ -51,6 +63,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 600,
       [Trait.CYNICISM]: 200,
       [Trait.EXTROVERSION]: 900,
+      [Trait.MAGIC]: 100,
+      [Trait.ORDER]: 200,
+    },
+    signatureWeights: {
+      [Trait.EXTROVERSION]: 2,
+      [Trait.AMBITION]: 0.5, // Less emphasis
     }
   },
   [CharacterId.ROACH]: {
@@ -68,6 +86,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 100, // Horse smarts
       [Trait.CYNICISM]: 500,
       [Trait.EXTROVERSION]: 200,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.CIRI]: {
@@ -85,6 +105,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 500,
       [Trait.CYNICISM]: 400,
       [Trait.EXTROVERSION]: 600,
+      [Trait.MAGIC]: 800, // Elder Blood
+      [Trait.ORDER]: 300,
+    },
+    signatureWeights: {
+      [Trait.IMPULSIVENESS]: 1.5,
+      [Trait.MAGIC]: 1.5,
     }
   },
   [CharacterId.TRISS]: {
@@ -102,6 +128,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 700,
       [Trait.CYNICISM]: 100,
       [Trait.EXTROVERSION]: 600,
+      [Trait.MAGIC]: 900,
+      [Trait.ORDER]: 500,
+    },
+    signatureWeights: {
+      [Trait.EMPATHY]: 2,
+      [Trait.MAGIC]: 1.5,
     }
   },
   [CharacterId.VESEMIR]: {
@@ -119,7 +151,9 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 800,
       [Trait.CYNICISM]: 400,
       [Trait.EXTROVERSION]: 200,
-    }
+      [Trait.MAGIC]: 400,
+      [Trait.ORDER]: 800,
+    },
   },
   [CharacterId.ZOLTAN]: {
     id: CharacterId.ZOLTAN,
@@ -136,6 +170,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 367,
       [Trait.CYNICISM]: 44,
       [Trait.EXTROVERSION]: 498,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.REGIS]: {
@@ -153,6 +189,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 950,
       [Trait.CYNICISM]: 300,
       [Trait.EXTROVERSION]: 300,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.LAMBERT]: {
@@ -170,6 +208,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 132,
       [Trait.CYNICISM]: 896,
       [Trait.EXTROVERSION]: 138,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.ESKEL]: {
@@ -187,6 +227,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 500,
       [Trait.CYNICISM]: 500,
       [Trait.EXTROVERSION]: 200,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.KEIRA]: {
@@ -204,6 +246,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 600, // Smart but not Yen level
       [Trait.CYNICISM]: 400,
       [Trait.EXTROVERSION]: 600,
+      [Trait.MAGIC]: 850,
+      [Trait.ORDER]: 400,
     }
   },
   [CharacterId.DIJKSTRA]: {
@@ -217,10 +261,16 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     traits: {
       [Trait.EMPATHY]: 50,
       [Trait.IMPULSIVENESS]: 200,
-      [Trait.AMBITION]: 800,
-      [Trait.INTELLECT]: 700,
-      [Trait.CYNICISM]: 900, // Super cynical
-      [Trait.EXTROVERSION]: 500,
+      [Trait.AMBITION]: 1000,
+      [Trait.INTELLECT]: 800,
+      [Trait.CYNICISM]: 900,
+      [Trait.EXTROVERSION]: 700,
+      [Trait.MAGIC]: 400,
+      [Trait.ORDER]: 950,
+    },
+    signatureWeights: {
+      [Trait.INTELLECT]: 2,
+      [Trait.CYNICISM]: 1.5,
     }
   },
   [CharacterId.EMHYR]: {
@@ -238,6 +288,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 800,
       [Trait.CYNICISM]: 900,
       [Trait.EXTROVERSION]: 200,
+      [Trait.MAGIC]: 200,
+      [Trait.ORDER]: 950,
     }
   },
   [CharacterId.ROCHE]: {
@@ -250,11 +302,17 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     colorTheme: "text-blue-600",
     traits: {
       [Trait.EMPATHY]: 100,
-      [Trait.IMPULSIVENESS]: 700, // Hot-headed patriot
-      [Trait.AMBITION]: 700,
-      [Trait.INTELLECT]: 400, // Soldier, not scholar
-      [Trait.CYNICISM]: 500,
+      [Trait.IMPULSIVENESS]: 300,
+      [Trait.AMBITION]: 600,
+      [Trait.INTELLECT]: 700,
+      [Trait.CYNICISM]: 800,
       [Trait.EXTROVERSION]: 400,
+      [Trait.MAGIC]: 0,
+      [Trait.ORDER]: 900,
+    },
+    signatureWeights: {
+      [Trait.ORDER]: 2,
+      [Trait.MAGIC]: 1.5,
     }
   },
   [CharacterId.IORVETH]: {
@@ -272,6 +330,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 623,
       [Trait.CYNICISM]: 822,
       [Trait.EXTROVERSION]: 47,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.GAUNTER]: {
@@ -289,6 +349,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 580,
       [Trait.CYNICISM]: 910,
       [Trait.EXTROVERSION]: -27,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.SHANI]: {
@@ -306,6 +368,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 429,
       [Trait.CYNICISM]: 550,
       [Trait.EXTROVERSION]: 323,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.PHILIPPA]: {
@@ -323,6 +387,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 326,
       [Trait.CYNICISM]: 875,
       [Trait.EXTROVERSION]: 194,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.VILGEFORTZ]: {
@@ -340,6 +406,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 70,
       [Trait.CYNICISM]: 859,
       [Trait.EXTROVERSION]: 7,
+      [Trait.MAGIC]: 950,
+      [Trait.ORDER]: 200, // Chaotic Evil
     }
   },
   [CharacterId.CAHIR]: {
@@ -357,6 +425,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 365,
       [Trait.CYNICISM]: 274,
       [Trait.EXTROVERSION]: 117,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.MILVA]: {
@@ -374,6 +444,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 87,
       [Trait.CYNICISM]: 584,
       [Trait.EXTROVERSION]: -155,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.ANGOULEME]: {
@@ -391,6 +463,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 20,
       [Trait.CYNICISM]: 221,
       [Trait.EXTROVERSION]: 589,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.BONHART]: {
@@ -408,6 +482,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 327,
       [Trait.CYNICISM]: 1093,
       [Trait.EXTROVERSION]: -194,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.FRINGILLA]: {
@@ -425,6 +501,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 622,
       [Trait.CYNICISM]: 453,
       [Trait.EXTROVERSION]: -32,
+      [Trait.MAGIC]: 850,
+      [Trait.ORDER]: 600,
     }
   },
   [CharacterId.MARGARITA]: {
@@ -442,6 +520,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 589,
       [Trait.CYNICISM]: 249,
       [Trait.EXTROVERSION]: 181,
+      [Trait.MAGIC]: 850,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.SHEALA]: {
@@ -459,6 +539,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 774,
       [Trait.CYNICISM]: 1027,
       [Trait.EXTROVERSION]: -204,
+      [Trait.MAGIC]: 900,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.TISSAIA]: {
@@ -476,6 +558,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 425,
       [Trait.CYNICISM]: 807,
       [Trait.EXTROVERSION]: -165,
+      [Trait.MAGIC]: 900,
+      [Trait.ORDER]: 950, // Strict
     }
   },
   [CharacterId.DUDU]: {
@@ -493,6 +577,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 200,
       [Trait.CYNICISM]: 380,
       [Trait.EXTROVERSION]: 143,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.PRISCILLA]: {
@@ -510,6 +596,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 441,
       [Trait.CYNICISM]: 580,
       [Trait.EXTROVERSION]: 184,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.DETTLAFF]: {
@@ -527,6 +615,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: -157,
       [Trait.CYNICISM]: 691,
       [Trait.EXTROVERSION]: 18,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.SYANNA]: {
@@ -544,6 +634,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 381,
       [Trait.CYNICISM]: 870,
       [Trait.EXTROVERSION]: 344,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.ANNA_HENRIETTA]: {
@@ -561,6 +653,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 40,
       [Trait.CYNICISM]: 634,
       [Trait.EXTROVERSION]: 323,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.OLGIERD]: {
@@ -578,6 +672,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: -71,
       [Trait.CYNICISM]: 836,
       [Trait.EXTROVERSION]: 355,
+      [Trait.MAGIC]: 300,
+      [Trait.ORDER]: 200,
     }
   },
   [CharacterId.VLODIMIR]: {
@@ -595,6 +691,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: -253,
       [Trait.CYNICISM]: 340,
       [Trait.EXTROVERSION]: 336,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 100, // Total Chaos
     }
   },
   [CharacterId.CRACH]: {
@@ -612,6 +710,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 46,
       [Trait.CYNICISM]: 343,
       [Trait.EXTROVERSION]: 249,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.CERYS]: {
@@ -629,6 +729,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 573,
       [Trait.CYNICISM]: 181,
       [Trait.EXTROVERSION]: 301,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.HJALMAR]: {
@@ -646,6 +748,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 100,
       [Trait.CYNICISM]: 556,
       [Trait.EXTROVERSION]: 596,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.MOUSESACK]: {
@@ -663,6 +767,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 457,
       [Trait.CYNICISM]: 430,
       [Trait.EXTROVERSION]: -107,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.RADOVID]: {
@@ -680,6 +786,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: -15,
       [Trait.CYNICISM]: 1009,
       [Trait.EXTROVERSION]: -222,
+      [Trait.MAGIC]: -200, // Hates mages
+      [Trait.ORDER]: 800,
     }
   },
   [CharacterId.FOLTEST]: {
@@ -697,6 +805,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 338,
       [Trait.CYNICISM]: 357,
       [Trait.EXTROVERSION]: 489,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.LETHO]: {
@@ -714,6 +824,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 698,
       [Trait.CYNICISM]: 736,
       [Trait.EXTROVERSION]: -232,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.VES]: {
@@ -731,6 +843,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 531,
       [Trait.CYNICISM]: 317,
       [Trait.EXTROVERSION]: 377,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.THALER]: {
@@ -748,6 +862,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 714,
       [Trait.CYNICISM]: 611,
       [Trait.EXTROVERSION]: 267,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.UMA]: {
@@ -765,6 +881,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 146,
       [Trait.CYNICISM]: 635,
       [Trait.EXTROVERSION]: 317,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.IMLERITH]: {
@@ -782,6 +900,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 101,
       [Trait.CYNICISM]: 1073,
       [Trait.EXTROVERSION]: 104,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.EREDIN]: {
@@ -799,6 +919,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 449,
       [Trait.CYNICISM]: 1033,
       [Trait.EXTROVERSION]: 94,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.AVALLACH]: {
@@ -816,6 +938,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 956,
       [Trait.CYNICISM]: 708,
       [Trait.EXTROVERSION]: -18,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.RENFRI]: {
@@ -833,6 +957,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 130,
       [Trait.CYNICISM]: 554,
       [Trait.EXTROVERSION]: 206,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.CALANTHE]: {
@@ -850,6 +976,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 405,
       [Trait.CYNICISM]: 725,
       [Trait.EXTROVERSION]: 428,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.PAVETTA]: {
@@ -867,6 +995,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 50,
       [Trait.CYNICISM]: 279,
       [Trait.EXTROVERSION]: 39,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
   [CharacterId.YARPEN]: {
@@ -884,6 +1014,8 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.INTELLECT]: 99,
       [Trait.CYNICISM]: 322,
       [Trait.EXTROVERSION]: 385,
+      [Trait.MAGIC]: 500,
+      [Trait.ORDER]: 500,
     }
   },
 };

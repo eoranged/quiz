@@ -106,6 +106,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.EXTROVERSION]: 100,
                     [Trait.INTELLECT]: -150,
                     [Trait.AMBITION]: 50,
+                    [Trait.ORDER]: -150,
                 },
             },
             {
@@ -115,6 +116,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.IMPULSIVENESS]: 100,
                     [Trait.INTELLECT]: 100,
                     [Trait.EXTROVERSION]: 150,
+                    [Trait.ORDER]: -50,
                 },
             },
             {
@@ -135,6 +137,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.AMBITION]: 150,
                     [Trait.CYNICISM]: 200,
                     [Trait.EMPATHY]: -50,
+                    [Trait.ORDER]: 50,
                 },
             },
         ],
@@ -151,7 +154,8 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.IMPULSIVENESS]: 200,
                     [Trait.INTELLECT]: -200,
                     [Trait.EXTROVERSION]: 100,
-                    [Trait.AMBITION]: 50, // Glory hog
+                    [Trait.AMBITION]: 50,
+                    [Trait.ORDER]: -100,
                 },
             },
             {
@@ -162,6 +166,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.INTELLECT]: 250,
                     [Trait.CYNICISM]: 100,
                     [Trait.EXTROVERSION]: -50,
+                    [Trait.ORDER]: 100,
                 },
             },
             {
@@ -171,6 +176,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.IMPULSIVENESS]: -200,
                     [Trait.INTELLECT]: 200,
                     [Trait.CYNICISM]: 150,
+                    [Trait.ORDER]: 50,
                 },
             },
             {
@@ -196,6 +202,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.AMBITION]: 250,
                     [Trait.CYNICISM]: 250,
                     [Trait.EMPATHY]: -250,
+                    [Trait.ORDER]: 150,
                 },
             },
             {
@@ -224,6 +231,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.AMBITION]: -100,
                     [Trait.IMPULSIVENESS]: 200,
                     [Trait.EXTROVERSION]: 150,
+                    [Trait.ORDER]: -150,
                 },
             },
         ],
@@ -240,6 +248,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.AMBITION]: 250,
                     [Trait.CYNICISM]: 150,
                     [Trait.EMPATHY]: -200,
+                    [Trait.ORDER]: 100,
                 },
             },
             {
@@ -250,6 +259,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.INTELLECT]: 100,
                     [Trait.EMPATHY]: 100,
                     [Trait.CYNICISM]: -50,
+                    [Trait.ORDER]: 100,
                 },
             },
             {
@@ -272,6 +282,49 @@ export const QUESTIONS_DATA: Question[] = [
             },
         ],
     },
+    // NEW QUESTION: ORDER PRIMARY
+    {
+        id: "q_order_1",
+        text: "Как ты относишься к законам и правилам?",
+        options: [
+            {
+                id: "q_order_1_absolute",
+                text: "Закон суров, но это закон. Порядок необходим любой ценой.",
+                traitModifiers: {
+                    [Trait.ORDER]: 250,
+                    [Trait.CYNICISM]: 100,
+                    [Trait.IMPULSIVENESS]: -150,
+                }
+            },
+            {
+                id: "q_order_1_chaos",
+                text: "Правила существуют, чтобы их нарушать. Свобода важнее всего!",
+                traitModifiers: {
+                    [Trait.ORDER]: -250,
+                    [Trait.IMPULSIVENESS]: 200,
+                    [Trait.EXTROVERSION]: 100,
+                }
+            },
+            {
+                id: "q_order_1_code",
+                text: "У меня свой кодекс чести, и я следую только ему.",
+                traitModifiers: {
+                    [Trait.ORDER]: 50,
+                    [Trait.AMBITION]: 50,
+                    [Trait.CYNICISM]: 50,
+                }
+            },
+            {
+                id: "q_order_1_flexible",
+                text: "Я действую по ситуации. Глупо слепо следовать правилам.",
+                traitModifiers: {
+                    [Trait.ORDER]: -100,
+                    [Trait.INTELLECT]: 100,
+                    [Trait.CYNICISM]: 150,
+                }
+            }
+        ]
+    },
     // 7. INTELLECT PRIMARY (Problem Solving)
     {
         id: "q_intellect_1",
@@ -285,6 +338,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.AMBITION]: 100,
                     [Trait.IMPULSIVENESS]: -150,
                     [Trait.EXTROVERSION]: -50,
+                    [Trait.MAGIC]: 150,
                 },
             },
             {
@@ -294,6 +348,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.INTELLECT]: -100,
                     [Trait.AMBITION]: 100,
                     [Trait.CYNICISM]: 200,
+                    [Trait.MAGIC]: -100,
                 },
             },
             {
@@ -303,6 +358,7 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.INTELLECT]: -50,
                     [Trait.IMPULSIVENESS]: 250,
                     [Trait.AMBITION]: 200,
+                    [Trait.MAGIC]: 250,
                 },
             },
             {
@@ -313,9 +369,54 @@ export const QUESTIONS_DATA: Question[] = [
                     [Trait.CYNICISM]: 150,
                     [Trait.IMPULSIVENESS]: 50,
                     [Trait.AMBITION]: -100, // Destroying power is anti-ambition
+                    [Trait.MAGIC]: -250,
                 },
             },
         ],
+    },
+    // NEW QUESTION: MAGIC PRIMARY
+    {
+        id: "q_magic_1",
+        text: "Каково твое отношение к магии?",
+        options: [
+            {
+                id: "q_magic_1_master",
+                text: "Это искусство, наука и власть. Я стремлюсь постичь все её тайны.",
+                traitModifiers: {
+                    [Trait.MAGIC]: 300,
+                    [Trait.INTELLECT]: 150,
+                    [Trait.AMBITION]: 100,
+                }
+            },
+            {
+                id: "q_magic_1_tool",
+                text: "Полезный инструмент, как меч или молот. Главное уметь им пользоваться.",
+                traitModifiers: {
+                    [Trait.MAGIC]: 100,
+                    [Trait.CYNICISM]: 50,
+                    [Trait.INTELLECT]: 50,
+                }
+            },
+            {
+                id: "q_magic_1_danger",
+                text: "Магия — это Хаос. Она опасна, непредсказуема и лучше держаться от неё подальше.",
+                traitModifiers: {
+                    [Trait.MAGIC]: -200,
+                    [Trait.ORDER]: 50,
+                    [Trait.CYNICISM]: 100,
+                }
+            },
+            {
+                id: "q_magic_1_unnatural",
+                text: "Мерзость. Чародеи играют с силами, которые не контролируют.",
+                traitModifiers: {
+                    [Trait.MAGIC]: -300,
+                    [Trait.ORDER]: 150,
+                    [Trait.CYNICISM]: 200,
+                    [Trait.EMPATHY]: -50,
+                }
+            }
+        ]
     },
     // 8. INTELLECT PRIMARY (Curiosity)
     {
