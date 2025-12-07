@@ -67,6 +67,11 @@ const App: React.FC = () => {
   const handleAnswer = useCallback((optionId: string) => {
     const currentQ = questions[currentQuestionIndex];
     const newAnswers = { ...answers, [currentQ.id]: optionId };
+
+    console.log(`[DEBUG] Question: ${currentQ.text} (ID: ${currentQ.id})`);
+    console.log(`[DEBUG] Selected Option: ${currentQ.options.find(o => o.id === optionId)?.text} (ID: ${optionId})`);
+    console.log('[DEBUG] Current Answers:', newAnswers);
+
     setAnswers(newAnswers);
 
     // Get next question based on current answers
@@ -74,11 +79,13 @@ const App: React.FC = () => {
     const MAX_QUESTIONS = 8; // Fuzzy tree depth
 
     if (nextQuestion && questions.length < MAX_QUESTIONS) {
+      console.log(`[DEBUG] Next Question determined: ${nextQuestion.id}`);
       setQuestions(prev => [...prev, nextQuestion]);
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       // Quiz finished
       const analysis = calculateResult(newAnswers);
+      console.log('[DEBUG] Quiz Result:', analysis);
       setResult(analysis);
       setGameState(AppState.RESULT);
 
