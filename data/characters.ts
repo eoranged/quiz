@@ -13,12 +13,12 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     traits: {
       [Trait.EMPATHY]: 150,
       [Trait.IMPULSIVENESS]: 200,
-      [Trait.AMBITION]: 300,
+      [Trait.AMBITION]: 500,
       [Trait.INTELLECT]: 700,
       [Trait.CYNICISM]: 800,
-      [Trait.EXTROVERSION]: 100,
+      [Trait.EXTROVERSION]: 300,
       [Trait.MAGIC]: 400,
-      [Trait.ORDER]: 700,
+      [Trait.ORDER]: 600,
     },
     signatureWeights: {
       [Trait.CYNICISM]: 1.5,
@@ -250,6 +250,7 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
       [Trait.ORDER]: 400,
     }
   },
+
   [CharacterId.DIJKSTRA]: {
     id: CharacterId.DIJKSTRA,
     name: "Сигизмунд Дийкстра",

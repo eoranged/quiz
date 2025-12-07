@@ -1,59 +1,101 @@
-import { CharacterId, Question, QuizResult, Trait } from "../types";
+import { CharacterId, Question, QuizResult, Trait, TraitProfile } from "../types";
 import { CHARACTERS } from "../data/characters";
-
 import { QUESTIONS_DATA } from "../data/questions";
 
-export const getQuestions = (): Question[] => {
-    return QUESTIONS_DATA.map(q => ({
-        ...q,
-        options: [...q.options].sort(() => Math.random() - 0.5)
-    }));
-};
-
-export const calculateResult = (answers: Record<string, string>): QuizResult => {
-    // 1. Initialize Player Profile (Based on Character Averages)
-    const playerTraits: Record<Trait, number> = {
-        [Trait.EMPATHY]: 450,
+// Helper to calculate current profile based on answers
+export const calculateProfile = (answers: Record<string, string>): TraitProfile => {
+    // Start with balanced profile
+    const profile: TraitProfile = {
+        [Trait.EMPATHY]: 500,
         [Trait.IMPULSIVENESS]: 500,
-        [Trait.AMBITION]: 530,
-        [Trait.INTELLECT]: 700,
-        [Trait.CYNICISM]: 520,
-        [Trait.EXTROVERSION]: 510,
+        [Trait.AMBITION]: 500,
+        [Trait.INTELLECT]: 500,
+        [Trait.CYNICISM]: 500,
+        [Trait.EXTROVERSION]: 500,
         [Trait.MAGIC]: 500,
         [Trait.ORDER]: 500
     };
 
-    // 2. Apply Modifiers from Answers
-    QUESTIONS_DATA.forEach(question => {
-        const selectedOptionId = answers[question.id];
-        const option = question.options.find(o => o.id === selectedOptionId);
-
-        if (option && option.traitModifiers) {
-            Object.entries(option.traitModifiers).forEach(([traitKey, value]) => {
-                const trait = traitKey as Trait;
-                if (value) {
-                    playerTraits[trait] = Math.max(0, Math.min(1000, playerTraits[trait] + value));
-                }
+    Object.entries(answers).forEach(([qId, optionId]) => {
+        const question = QUESTIONS_DATA.find(q => q.id === qId);
+        const option = question?.options.find(o => o.id === optionId);
+        if (option?.traitModifiers) {
+            Object.entries(option.traitModifiers).forEach(([t, val]) => {
+                const trait = t as Trait;
+                profile[trait] = Math.max(0, Math.min(1000, profile[trait] + (val || 0)));
             });
         }
     });
 
-    console.log("👤 Player Trait Profile:", playerTraits);
+    return profile;
+};
 
-    // 3. Find Closest Character (Euclidean Distance with Weights)
+// Fuzzy Logic to determine next question
+export const getNextQuestion = (answers: Record<string, string>): Question | null => {
+    const answeredIds = new Set(Object.keys(answers));
+    const count = answeredIds.size;
+
+    // Phase 1: Global Questions (First 3)
+    if (count < 3) {
+        const globals = QUESTIONS_DATA.filter(q => q.tags?.includes("global") && !answeredIds.has(q.id));
+        if (globals.length > 0) {
+            return globals[Math.floor(Math.random() * globals.length)];
+        }
+    }
+
+    // Determine Archetype
+    const profile = calculateProfile(answers);
+    let targetTag = "cluster_pro"; // Default
+
+    // Logic to determine cluster
+    if (profile[Trait.EXTROVERSION] > 600 || profile[Trait.IMPULSIVENESS] > 600) {
+        targetTag = "cluster_bard";
+    } else if (profile[Trait.AMBITION] > 600 && profile[Trait.ORDER] > 550) {
+        targetTag = "cluster_ruler";
+    } else if (profile[Trait.CYNICISM] > 600 && profile[Trait.EMPATHY] < 450) {
+        targetTag = "cluster_rebel";
+    } else if (profile[Trait.INTELLECT] > 600 && profile[Trait.ORDER] > 500) {
+        targetTag = "cluster_mentor";
+    }
+
+    // Phase 2: Archetype Specific
+    const archetypeQuestions = QUESTIONS_DATA.filter(q => q.tags?.includes(targetTag) && !answeredIds.has(q.id));
+    if (archetypeQuestions.length > 0) {
+        return archetypeQuestions[Math.floor(Math.random() * archetypeQuestions.length)];
+    }
+
+    // Phase 3: Fillers / Remaining
+    const remaining = QUESTIONS_DATA.filter(q => !answeredIds.has(q.id));
+    if (remaining.length > 0) {
+        return remaining[Math.floor(Math.random() * remaining.length)];
+    }
+
+    return null;
+};
+
+// Legacy support for refactoring
+export const getQuestions = (): Question[] => {
+    // Just return all for now if needed, but App should use getNextQuestion
+    return QUESTIONS_DATA;
+};
+
+export const calculateResult = (answers: Record<string, string>): QuizResult => {
+    const playerTraits = calculateProfile(answers);
+
+    console.log("👤 Final Player Profile:", playerTraits);
+
+    // Find Closest Character
     let minDistance = Infinity;
     let closestCharacter = CharacterId.GERALT;
 
     Object.values(CHARACTERS).forEach(character => {
-        if (!character.traits) return; // Safety check
-
         let distanceSquared = 0;
         Object.values(Trait).forEach(trait => {
-            const playerVal = playerTraits[trait] !== undefined ? playerTraits[trait] : 500;
-            const charVal = character.traits[trait] !== undefined ? character.traits[trait] : 500;
+            const playerVal = playerTraits[trait];
+            const charVal = character.traits[trait];
             const diff = playerVal - charVal;
 
-            // Apply Signature Weight multiplier if present
+            // Apply Signature Weight
             let weight = 1;
             if (character.signatureWeights && character.signatureWeights[trait]) {
                 weight = character.signatureWeights[trait]!;
@@ -62,62 +104,29 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
             distanceSquared += (diff * weight) * (diff * weight);
         });
 
-        const distance = Math.sqrt(distanceSquared);
-
-        if (distance < minDistance) {
-            minDistance = distance;
+        if (distanceSquared < minDistance) {
+            minDistance = distanceSquared;
             closestCharacter = character.id;
         }
     });
 
-    console.log(`🏆 Closest Character: ${closestCharacter} (Distance: ${minDistance.toFixed(2)})`);
-
+    console.log(`🏆 Closest Character: ${closestCharacter} (DistSq: ${minDistance.toFixed(0)})`);
     return CHARACTERS[closestCharacter];
 };
 
 export const encodeAnswers = (answers: Record<string, string>): string => {
-    const chars = QUESTIONS_DATA.map(q => {
-        const answerId = answers[q.id];
-        // answerId format is "qX_y", we want "y" (last char)
-        return answerId ? answerId.split('_').pop() : '-';
-    }).join('');
-
+    // Simple JSON encoding since dynamic questions make positional encoding hard
     try {
-        return btoa(chars);
-    } catch (e) {
-        console.error("Failed to encode answers", e);
-        return "";
-    }
+        return btoa(JSON.stringify(answers));
+    } catch { return ""; }
 };
 
 export const decodeAnswers = (code: string): Record<string, string> | null => {
-    if (!code) return null;
-
-    let decoded = "";
     try {
-        decoded = atob(code);
-    } catch (e) {
-        console.error("Failed to decode answers", e);
-        return null;
-    }
-
-    if (decoded.length !== QUESTIONS_DATA.length) return null;
-
-    const answers: Record<string, string> = {};
-
-    // Validate characters (a,b,c,d)
-    if (!/^[abcd-]+$/.test(decoded)) return null;
-
-    for (let i = 0; i < QUESTIONS_DATA.length; i++) {
-        const char = decoded[i];
-        if (char === '-') continue;
-
-        const qId = QUESTIONS_DATA[i].id;
-        answers[qId] = `${qId}_${char}`;
-    }
-    return answers;
+        return JSON.parse(atob(code));
+    } catch { return null; }
 };
 
-// Deprecated functions
-export const generateQuizQuestions = async (): Promise<Question[]> => { return []; };
-export const analyzeQuizResult = async (): Promise<QuizResult> => { return CHARACTERS[CharacterId.GERALT]; };
+// Deprecated
+export const generateQuizQuestions = async (): Promise<Question[]> => [];
+export const analyzeQuizResult = async (): Promise<QuizResult> => CHARACTERS[CharacterId.GERALT];

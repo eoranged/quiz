@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { AppState, Question, QuizResult, CharacterId } from './types';
-import { getQuestions, calculateResult, encodeAnswers, decodeAnswers } from './services/geminiService';
+import { calculateResult, encodeAnswers, decodeAnswers, getNextQuestion } from './services/geminiService';
 import { Button } from './components/Button';
 import { WolfMedallion } from './components/WolfMedallion';
 import { CharacterCard } from './components/CharacterCard';
@@ -22,7 +22,6 @@ const App: React.FC = () => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Check URL hash on mount to restore shared result
   // Check URL hash on mount to restore shared result or enable dev view
   const [isDevView, setIsDevView] = useState(false);
 
@@ -53,13 +52,16 @@ const App: React.FC = () => {
   }, []);
 
   const startGame = useCallback(() => {
-    const q = getQuestions();
-    setQuestions(q);
-    setAnswers({});
-    setCurrentQuestionIndex(0);
-    setGameState(AppState.PLAYING);
-    // Clear hash when starting a new game
-    history.pushState("", document.title, window.location.pathname + window.location.search);
+    // Start with the first adaptive question
+    const firstQuestion = getNextQuestion({});
+    if (firstQuestion) {
+      setQuestions([firstQuestion]);
+      setAnswers({});
+      setCurrentQuestionIndex(0);
+      setGameState(AppState.PLAYING);
+      // Clear hash when starting a new game
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
   }, []);
 
   const handleAnswer = useCallback((optionId: string) => {
@@ -67,7 +69,12 @@ const App: React.FC = () => {
     const newAnswers = { ...answers, [currentQ.id]: optionId };
     setAnswers(newAnswers);
 
-    if (currentQuestionIndex < questions.length - 1) {
+    // Get next question based on current answers
+    const nextQuestion = getNextQuestion(newAnswers);
+    const MAX_QUESTIONS = 8; // Fuzzy tree depth
+
+    if (nextQuestion && questions.length < MAX_QUESTIONS) {
+      setQuestions(prev => [...prev, nextQuestion]);
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
       // Quiz finished
@@ -106,7 +113,6 @@ const App: React.FC = () => {
     const paddedIndex = String(index).padStart(2, '0');
 
     // Robust lookup: try to find a key in loaded modules that ends with the expected filename.
-    // This handles path differences and allows for both "avatar00.png" and "avatars00.png" naming.
     const expectedNames = [
       `avatar${paddedIndex}.png`,
       `avatars${paddedIndex}.png`
@@ -191,7 +197,7 @@ const App: React.FC = () => {
                 </p>
               </div>
               <p className="text-slate-300 leading-relaxed max-w-md mx-auto">
-                Ответь на 13 забавных вопросов о жизни в мире монстров и магии. Никакой регистрации, только чистое Предназначение.
+                Ответь на 8 вопросов, и Предназначение найдет тебя.
               </p>
               <Button onClick={startGame} className="mx-auto w-full md:w-auto text-xl px-12 py-4 mt-8">
                 Начать Путь
@@ -203,7 +209,7 @@ const App: React.FC = () => {
           {!isDevView && gameState === AppState.PLAYING && questions.length > 0 && (
             <div className="space-y-8 animate-fadeIn">
               <div className="flex justify-between items-end border-b border-slate-700 pb-4">
-                <span className="text-amber-600 font-cinzel font-bold">Вопрос {currentQuestionIndex + 1} / {questions.length}</span>
+                <span className="text-amber-600 font-cinzel font-bold">Вопрос {currentQuestionIndex + 1} / {questions.length < 8 ? "..." : 8}</span>
                 <WolfMedallion className="w-8 h-8 opacity-50" />
               </div>
 

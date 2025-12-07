@@ -77,6 +77,7 @@ export interface Question {
   id: string;
   text: string;
   options: Option[];
+  tags?: string[]; // e.g., 'global', 'ruler', 'monster', etc.
 }
 
 export interface QuizResult {
