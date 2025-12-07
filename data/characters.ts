@@ -13,7 +13,7 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     traits: {
       [Trait.EMPATHY]: 150,
       [Trait.IMPULSIVENESS]: 200,
-      [Trait.AMBITION]: 500,
+      [Trait.AMBITION]: 400,
       [Trait.INTELLECT]: 700,
       [Trait.CYNICISM]: 800,
       [Trait.EXTROVERSION]: 300,
@@ -23,6 +23,7 @@ export const CHARACTERS: Record<CharacterId, QuizResult> = {
     signatureWeights: {
       [Trait.CYNICISM]: 1.5,
       [Trait.ORDER]: 1.5,
+      [Trait.AMBITION]: 0.5,
     }
   },
   [CharacterId.YENNEFER]: {

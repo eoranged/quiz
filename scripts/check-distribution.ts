@@ -1,9 +1,8 @@
 
-import { CHARACTERS } from "../data/characters";
-import { CharacterId, Trait, TraitProfile, QuizResult } from "../types";
+import { CharacterId, } from "../types";
 import { getNextQuestion, calculateResult } from "../services/geminiService";
 
-const NUM_SIMULATIONS = 2000; // Lower count for speed with adaptive logic
+const NUM_SIMULATIONS = 1000; // Lower count for speed with adaptive logic
 
 function runSimulation() {
     const counts: Record<CharacterId, number> = {} as any;

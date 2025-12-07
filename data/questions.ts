@@ -270,6 +270,11 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "ment_ruins",
                 text: "Руины моих врагов.",
                 traitModifiers: { [Trait.AMBITION]: 200, [Trait.CYNICISM]: 250, [Trait.EMPATHY]: -200 }
+            },
+            {
+                id: "ment_tale",
+                text: "Пару баек в таверне. Слава мне не нужна.",
+                traitModifiers: { [Trait.CYNICISM]: 150, [Trait.EXTROVERSION]: -100, [Trait.ORDER]: 50 }
             }
         ]
     },
@@ -294,6 +299,11 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "rul_clever",
                 text: "Хитрым. Политика — это шахматы, где пешки умирают.",
                 traitModifiers: { [Trait.INTELLECT]: 250, [Trait.AMBITION]: 250, [Trait.CYNICISM]: 150 }
+            },
+            {
+                id: "rul_loved",
+                text: "Любимым. Народ должен обожать своего короля!",
+                traitModifiers: { [Trait.EXTROVERSION]: 300, [Trait.AMBITION]: 100, [Trait.ORDER]: -100 }
             }
         ]
     },
@@ -340,6 +350,11 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "mag_tool",
                 text: "Инструмент. Полезно, чтобы разогреть суп или сжечь врага.",
                 traitModifiers: { [Trait.MAGIC]: 100, [Trait.CYNICISM]: 50 }
+            },
+            {
+                id: "mag_wonder",
+                text: "Это шоу! Искры, порталы, драма — я в восторге!",
+                traitModifiers: { [Trait.EXTROVERSION]: 250, [Trait.IMPULSIVENESS]: 150, [Trait.MAGIC]: -100 }
             }
         ]
     },
