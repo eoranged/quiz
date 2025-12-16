@@ -1,23 +1,33 @@
+import { QUIZZES } from "../data/quizzes";
+import { Trait } from "../types";
 
-import { CHARACTERS } from "../data/characters";
-import { CharacterId, Trait } from "../types";
+const args = process.argv.slice(2);
+const quizIndex = args.findIndex(arg => arg === '-q' || arg === '--quiz');
+const quizId = quizIndex !== -1 ? args[quizIndex + 1] : 'witcher-personality';
 
+const quizConfig = QUIZZES[quizId];
+if (!quizConfig) {
+    console.error(`❌ Error: Quiz '${quizId}' not found.`);
+    process.exit(1);
+}
+
+const CHARACTERS = quizConfig.characters;
 const TRAITS = Object.values(Trait);
 
 interface Cluster {
     name: string;
     centroid: Record<Trait, number>;
-    members: CharacterId[];
+    members: string[]; // Generic ID
 }
 
 // Simple K-Means-ish implementation
 function clusterCharacters(k: number) {
     // 1. Initialize random centroids
     let clusters: Cluster[] = [];
-    const charIds = Object.values(CharacterId);
+    const charIds = Object.keys(CHARACTERS);
 
     // Pick k random characters as initial centroids to ensure valid starting points
-    const seeds = new Set<CharacterId>();
+    const seeds = new Set<string>();
     while (seeds.size < k) {
         seeds.add(charIds[Math.floor(Math.random() * charIds.length)]);
     }

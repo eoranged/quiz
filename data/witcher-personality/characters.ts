@@ -1,5 +1,5 @@
 
-import { CharacterId, QuizResult, Trait } from "../types";
+import { CharacterId, QuizResult, Trait } from "../../types";
 
 export const CHARACTERS: Record<CharacterId, QuizResult> = {
   [CharacterId.GERALT]: {

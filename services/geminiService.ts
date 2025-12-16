@@ -1,9 +1,7 @@
-import { CharacterId, Question, QuizResult, Trait, TraitProfile } from "../types";
-import { CHARACTERS } from "../data/characters";
-import { QUESTIONS_DATA } from "../data/questions";
+import { Question, QuizResult, Trait, TraitProfile } from "../types";
 
 // Helper to calculate current profile based on answers
-export const calculateProfile = (answers: Record<string, string>): TraitProfile => {
+export const calculateProfile = (answers: Record<string, string>, allQuestions: Question[]): TraitProfile => {
     // Start with balanced profile
     const profile: TraitProfile = {
         [Trait.EMPATHY]: 500,
@@ -17,7 +15,7 @@ export const calculateProfile = (answers: Record<string, string>): TraitProfile 
     };
 
     Object.entries(answers).forEach(([qId, optionId]) => {
-        const question = QUESTIONS_DATA.find(q => q.id === qId);
+        const question = allQuestions.find(q => q.id === qId);
         const option = question?.options.find(o => o.id === optionId);
         if (option?.traitModifiers) {
             Object.entries(option.traitModifiers).forEach(([t, val]) => {
@@ -31,23 +29,30 @@ export const calculateProfile = (answers: Record<string, string>): TraitProfile 
 };
 
 // Fuzzy Logic to determine next question
-export const getNextQuestion = (answers: Record<string, string>): Question | null => {
+export const getNextQuestion = (answers: Record<string, string>, allQuestions: Question[]): Question | null => {
     const answeredIds = new Set(Object.keys(answers));
     const count = answeredIds.size;
 
     // Phase 1: Global Questions (First 3)
+    // Note: This logic assumes questions are tagged 'global'. If the quiz doesn't use tags or uses different tags, this might need adjustment.
+    // For now, we keep it generic enough: if no 'global' tags found, it might skip to other logic or we assume the quiz structure follows this pattern.
+    // If a quiz is simple (linear), we might just want random from remaining.
+    // Let's keep the logic but check if 'global' exists.
+
     if (count < 3) {
-        const globals = QUESTIONS_DATA.filter(q => q.tags?.includes("global") && !answeredIds.has(q.id));
+        const globals = allQuestions.filter(q => q.tags?.includes("global") && !answeredIds.has(q.id));
         if (globals.length > 0) {
             return globals[Math.floor(Math.random() * globals.length)];
         }
     }
 
     // Determine Archetype
-    const profile = calculateProfile(answers);
+    const profile = calculateProfile(answers, allQuestions);
     let targetTag = "cluster_pro"; // Default
 
-    // Logic to determine cluster
+    // Logic to determine cluster (This logic is very Witcher specific in terms of specific thresholds/clusters)
+    // TODO: Ideally this logic should be configurable part of the quiz definition.
+    // For now, if tags don't exist, we fall through to random remaining.
     if (profile[Trait.EXTROVERSION] > 600 || profile[Trait.IMPULSIVENESS] > 600) {
         targetTag = "cluster_bard";
     } else if (profile[Trait.AMBITION] > 600 && profile[Trait.ORDER] > 550) {
@@ -59,13 +64,13 @@ export const getNextQuestion = (answers: Record<string, string>): Question | nul
     }
 
     // Phase 2: Archetype Specific
-    const archetypeQuestions = QUESTIONS_DATA.filter(q => q.tags?.includes(targetTag) && !answeredIds.has(q.id));
+    const archetypeQuestions = allQuestions.filter(q => q.tags?.includes(targetTag) && !answeredIds.has(q.id));
     if (archetypeQuestions.length > 0) {
         return archetypeQuestions[Math.floor(Math.random() * archetypeQuestions.length)];
     }
 
     // Phase 3: Fillers / Remaining
-    const remaining = QUESTIONS_DATA.filter(q => !answeredIds.has(q.id));
+    const remaining = allQuestions.filter(q => !answeredIds.has(q.id));
     if (remaining.length > 0) {
         return remaining[Math.floor(Math.random() * remaining.length)];
     }
@@ -73,22 +78,17 @@ export const getNextQuestion = (answers: Record<string, string>): Question | nul
     return null;
 };
 
-// Legacy support for refactoring
-export const getQuestions = (): Question[] => {
-    // Just return all for now if needed, but App should use getNextQuestion
-    return QUESTIONS_DATA;
-};
-
-export const calculateResult = (answers: Record<string, string>): QuizResult => {
-    const playerTraits = calculateProfile(answers);
+export const calculateResult = (answers: Record<string, string>, allQuestions: Question[], allCharacters: Record<string, QuizResult>): QuizResult => {
+    const playerTraits = calculateProfile(answers, allQuestions);
 
     console.log("👤 Final Player Profile:", playerTraits);
 
     // Find Closest Character
     let minDistance = Infinity;
-    let closestCharacter = CharacterId.GERALT;
+    // Default to first character if generic, or null handling (using type casting safe bet for now)
+    let closestCharacterId = Object.keys(allCharacters)[0];
 
-    Object.values(CHARACTERS).forEach(character => {
+    Object.values(allCharacters).forEach(character => {
         let distanceSquared = 0;
         Object.values(Trait).forEach(trait => {
             const playerVal = playerTraits[trait];
@@ -106,12 +106,12 @@ export const calculateResult = (answers: Record<string, string>): QuizResult => 
 
         if (distanceSquared < minDistance) {
             minDistance = distanceSquared;
-            closestCharacter = character.id;
+            closestCharacterId = character.id;
         }
     });
 
-    console.log(`🏆 Closest Character: ${closestCharacter} (DistSq: ${minDistance.toFixed(0)})`);
-    return CHARACTERS[closestCharacter];
+    console.log(`🏆 Closest Character: ${closestCharacterId} (DistSq: ${minDistance.toFixed(0)})`);
+    return allCharacters[closestCharacterId];
 };
 
 export const encodeAnswers = (answers: Record<string, string>): string => {
@@ -126,7 +126,3 @@ export const decodeAnswers = (code: string): Record<string, string> | null => {
         return JSON.parse(atob(code));
     } catch { return null; }
 };
-
-// Deprecated
-export const generateQuizQuestions = async (): Promise<Question[]> => [];
-export const analyzeQuizResult = async (): Promise<QuizResult> => CHARACTERS[CharacterId.GERALT];

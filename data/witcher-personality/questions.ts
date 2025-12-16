@@ -1,5 +1,5 @@
 
-import { Question, Trait } from "../types";
+import { Question, Trait } from "../../types";
 
 export const QUESTIONS_DATA: Question[] = [
     // --- GLOBAL QUESTIONS (Phase 1) ---

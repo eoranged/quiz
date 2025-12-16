@@ -1,5 +1,5 @@
 import { calculateResult, calculateProfile, getNextQuestion } from '../services/geminiService';
-import { CHARACTERS } from '../data/characters';
+import { QUIZZES } from '../data/quizzes';
 import { CharacterId, Trait } from '../types';
 
 // Simulation Logic
@@ -9,7 +9,20 @@ const verbose = args.includes('-v') || args.includes('--verbose');
 const idIndex = args.findIndex(arg => arg === '-i' || arg === '--id');
 const filterId = idIndex !== -1 ? args[idIndex + 1] : null;
 
-console.log("Starting Character Verification...\n");
+const quizIndex = args.findIndex(arg => arg === '-q' || arg === '--quiz');
+const quizId = quizIndex !== -1 ? args[quizIndex + 1] : 'witcher-personality';
+
+const quizConfig = QUIZZES[quizId];
+
+if (!quizConfig) {
+    console.error(`❌ Error: Quiz '${quizId}' not found. Available: ${Object.keys(QUIZZES).join(', ')}`);
+    process.exit(1);
+}
+
+const CHARACTERS = quizConfig.characters;
+const QUESTIONS = quizConfig.questions;
+
+console.log(`Starting Character Verification for '${quizConfig.title}'...\n`);
 
 let successCount = 0;
 const failures: Array<{
@@ -19,12 +32,13 @@ const failures: Array<{
     distanceToGot: number
 }> = [];
 
+// Helper compatible with new types if needed, but we are using strings in logic mostly
 const charactersToTest = filterId
-    ? [CHARACTERS[filterId as CharacterId]].filter(Boolean)
+    ? [CHARACTERS[filterId]].filter(Boolean)
     : Object.values(CHARACTERS);
 
 if (filterId && charactersToTest.length === 0) {
-    console.error(`❌ Error: Character '${filterId}' not found.`);
+    console.error(`❌ Error: Character '${filterId}' not found in quiz '${quizId}'.`);
     process.exit(1);
 }
 
@@ -47,7 +61,7 @@ charactersToTest.forEach(targetChar => {
     const MAX_ITERATIONS = 8; // Match App.tsx limit
 
     while (iteration < MAX_ITERATIONS) {
-        const question = getNextQuestion(currentAnswers);
+        const question = getNextQuestion(currentAnswers, QUESTIONS);
         if (!question) break; // No more questions
 
         // Find best option for this target character
@@ -58,17 +72,20 @@ charactersToTest.forEach(targetChar => {
         question.options.forEach(option => {
             // Create temporary answers with this option
             const tempAnswers = { ...currentAnswers, [question.id]: option.id };
-            const tempProfile = calculateProfile(tempAnswers);
+            const tempProfile = calculateProfile(tempAnswers, QUESTIONS);
 
             // Calculate distance to target char
             let distSq = 0;
             Object.values(Trait).forEach(t => {
                 const pVal = tempProfile[t];
+                // @ts-ignore
                 const tVal = targetTraits[t] !== undefined ? targetTraits[t]! : 500;
                 const diff = pVal - tVal;
 
                 let weight = 1;
+                // @ts-ignore
                 if (targetChar.signatureWeights && targetChar.signatureWeights[t]) {
+                    // @ts-ignore
                     weight = targetChar.signatureWeights[t]!;
                 }
                 distSq += (diff * weight) * (diff * weight);
@@ -93,8 +110,8 @@ charactersToTest.forEach(targetChar => {
     }
 
     // Final Calculation
-    const finalProfile = calculateProfile(currentAnswers);
-    const resultChar = calculateResult(currentAnswers);
+    const finalProfile = calculateProfile(currentAnswers, QUESTIONS);
+    const resultChar = calculateResult(currentAnswers, QUESTIONS, CHARACTERS);
 
     // Check duplication logic: Calculate distances for results
     // We recreate "getDist" logic here using the *final* currentTraits vs Char Traits

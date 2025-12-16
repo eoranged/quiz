@@ -1,7 +1,7 @@
 import React from 'react';
 import { QuizResult } from '../types';
 import { Button } from './Button';
-import { WolfMedallion } from './WolfMedallion';
+import { LoadingIndicator } from './LoadingIndicator';
 
 interface CharacterCardProps {
     result: QuizResult;
@@ -37,7 +37,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
                     >
                         {!avatarStyle.backgroundImage && (
                             <div className="w-full h-full flex items-center justify-center">
-                                <WolfMedallion className="w-16 h-16 opacity-20" />
+                                <LoadingIndicator className="w-16 h-16 opacity-20" variant="wolf" />
                             </div>
                         )}
                     </div>
