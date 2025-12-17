@@ -69,7 +69,15 @@ export const getNextQuestion = (answers: Record<string, string>, allQuestions: Q
         return archetypeQuestions[Math.floor(Math.random() * archetypeQuestions.length)];
     }
 
-    // Phase 3: Fillers / Remaining
+    // Phase 3: Refinement / Tie Breakers (Prioritize new questions)
+    const refinementQuestions = allQuestions.filter(q =>
+        q.tags?.some(tag => tag.startsWith("refine_") || tag === "magic_check") && !answeredIds.has(q.id)
+    );
+    if (refinementQuestions.length > 0) {
+        return refinementQuestions[Math.floor(Math.random() * refinementQuestions.length)];
+    }
+
+    // Phase 4: Fillers / Remaining
     const remaining = allQuestions.filter(q => !answeredIds.has(q.id));
     if (remaining.length > 0) {
         return remaining[Math.floor(Math.random() * remaining.length)];
@@ -103,6 +111,74 @@ export const calculateResult = (answers: Record<string, string>, allQuestions: Q
 
             distanceSquared += (diff * weight) * (diff * weight);
         });
+
+        if (distanceSquared < minDistance) {
+            minDistance = distanceSquared;
+            closestCharacterId = character.id;
+        }
+    });
+
+    // Apply strict character boosts (DABES refinement)
+    // We calculate a 'boost' score for each character based on answers
+    const scores: Record<string, number> = {};
+    Object.keys(allCharacters).forEach(id => scores[id] = 0);
+
+    Object.entries(answers).forEach(([qId, optionId]) => {
+        const question = allQuestions.find(q => q.id === qId);
+        const option = question?.options.find(o => o.id === optionId);
+        if (option?.characterBoosts) {
+            Object.entries(option.characterBoosts).forEach(([charId, boost]) => {
+                if (scores[charId] !== undefined) {
+                    scores[charId] += (boost || 0);
+                }
+            });
+        }
+    });
+
+    // Strategy: Reduce distance for boosted characters
+    // Logic: distance = distance - (boost_score * MULTIPLIER)
+    // A strong boost (e.g., +5) should significantly reduce the distance gap.
+    // Distance roughly ranges 0-3000 (sqrt of sum squares). Squared distance ranges 0-~8,000,000. 
+    // Wait, minDistance here is squared distance. Max possible sq distance is 8 * 1000^2 = 8,000,000.
+    // Typical "close" match is ~100,000 - 300,000.
+    // A boost of 1 should be meaningful. Let's act on squared distance directly.
+    // Let's re-evaluate best match with boosts.
+
+    // Recalculate best match with boosts
+    minDistance = Infinity;
+
+    Object.values(allCharacters).forEach(character => {
+        let distanceSquared = 0;
+        Object.values(Trait).forEach(trait => {
+            const playerVal = playerTraits[trait];
+            const charVal = character.traits[trait];
+            const diff = playerVal - charVal;
+
+            // Apply Signature Weight
+            let weight = 1;
+            if (character.signatureWeights && character.signatureWeights[trait]) {
+                weight = character.signatureWeights[trait]!;
+            }
+
+            distanceSquared += (diff * weight) * (diff * weight);
+        });
+
+        // APPLY BOOST
+        const boost = scores[character.id] || 0;
+        // Each point of boost reduces effective "error" distance.
+        // Let's say 1 boost point removes ~50 units of linear distance error.
+        // So we subtract (boost * 50)^2 ? No, that's not linear.
+        // Let's reduce Squared Distance by a percentage or a flat chunk.
+        // 1 boost = reduce distance by 15%. (Strong preference).
+        // Max boost likely 1-3.
+
+        // Alternative: Treat boost as a massive reduction in error.
+        // let's try: distSq = distSq * (1 - boost * 0.15)
+        if (boost > 0) {
+            const factor = Math.max(0.1, 1 - (boost * 0.25)); // 1 boost = 25% closer, 3 boosts = 75% closer
+            distanceSquared *= factor;
+            console.log(`🚀 Boost for ${character.id}: ${boost} (Factor: ${factor.toFixed(2)})`);
+        }
 
         if (distanceSquared < minDistance) {
             minDistance = distanceSquared;

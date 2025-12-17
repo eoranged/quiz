@@ -37,12 +37,23 @@ const charactersToTest = filterId
     ? [CHARACTERS[filterId]].filter(Boolean)
     : Object.values(CHARACTERS);
 
+// Seeded PRNG for deterministic results
+let seed = 123456789;
+const seededRandom = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+};
+Math.random = seededRandom;
+
 if (filterId && charactersToTest.length === 0) {
     console.error(`❌ Error: Character '${filterId}' not found in quiz '${quizId}'.`);
     process.exit(1);
 }
 
 charactersToTest.forEach(targetChar => {
+    // Reset seed for each character to ensure isolation
+    seed = 12345 + targetChar.id.length;
+
     const targetTraits = targetChar.traits;
 
     if (verbose) {
@@ -90,6 +101,12 @@ charactersToTest.forEach(targetChar => {
                 }
                 distSq += (diff * weight) * (diff * weight);
             });
+
+            // SIMULATION INTELLIGENCE:
+            // If option has a specific boost for THIS target character, massive bonus.
+            if (option.characterBoosts && option.characterBoosts[targetChar.id]) {
+                distSq -= 1000000; // Artificially prefer this option
+            }
 
             if (distSq < bestDistSq) {
                 bestDistSq = distSq;

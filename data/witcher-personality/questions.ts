@@ -1,5 +1,4 @@
-
-import { Question, Trait } from "../../types";
+import { Question, Trait, CharacterId } from "../../types";
 
 export const QUESTIONS_DATA: Question[] = [
     // --- GLOBAL QUESTIONS (Phase 1) ---
@@ -382,6 +381,169 @@ export const QUESTIONS_DATA: Question[] = [
                 id: "hob_scheme",
                 text: "Планирую захват мира... то есть, завтрашний день.",
                 traitModifiers: { [Trait.AMBITION]: 200, [Trait.ORDER]: 100 }
+            }
+        ]
+    },
+    // --- NEW QUESTIONS (Refining Phase) ---
+    {
+        id: "q_authority_source",
+        text: "Откуда берется истинная власть?",
+        tags: ["refine_power"],
+        options: [
+            {
+                id: "auth_law",
+                text: "Из Закона и Порядка. Без них мы звери.",
+                traitModifiers: { [Trait.ORDER]: 300, [Trait.CYNICISM]: 150, [Trait.MAGIC]: -100 }
+            },
+            {
+                id: "auth_force",
+                text: "Сила. Кто сильнее, тот и прав. (Или у кого больше армия).",
+                traitModifiers: { [Trait.AMBITION]: 250, [Trait.ORDER]: 150, [Trait.EMPATHY]: -200 }
+            },
+            {
+                id: "auth_magic",
+                text: "Магия. Это сила, способная менять реальность.",
+                traitModifiers: { [Trait.MAGIC]: 300, [Trait.INTELLECT]: 150, [Trait.AMBITION]: 100, [Trait.ORDER]: -50 }
+            },
+            {
+                id: "auth_money",
+                text: "Золото. За него можно купить армию, магов и закон.",
+                traitModifiers: { [Trait.CYNICISM]: 300, [Trait.AMBITION]: 100, [Trait.EMPATHY]: -100 }
+            }
+        ]
+    },
+    {
+        id: "q_crisis_friend",
+        text: "Твоего друга схватили стражники. Твои действия?",
+        tags: ["refine_loyalty"],
+        options: [
+            {
+                id: "cris_storm",
+                text: "Врываюсь с мечом/магией! Никто не тронет моих!",
+                traitModifiers: { [Trait.IMPULSIVENESS]: 300, [Trait.EMPATHY]: 200, [Trait.ORDER]: -200 }
+            },
+            {
+                id: "cris_bribe",
+                text: "Заплачу выкуп или подкуплю судью. Тихо и эффективно.",
+                traitModifiers: { [Trait.INTELLECT]: 200, [Trait.CYNICISM]: 150, [Trait.IMPULSIVENESS]: -100 }
+            },
+            {
+                id: "cris_plan",
+                text: "Соберу информацию, подготовлю план побега.",
+                traitModifiers: { [Trait.INTELLECT]: 250, [Trait.ORDER]: 150, [Trait.IMPULSIVENESS]: -150 }
+            },
+            {
+                id: "cris_abandon",
+                text: "Сам виноват. Я не буду рисковать собой.",
+                traitModifiers: { [Trait.CYNICISM]: 300, [Trait.EMPATHY]: -300 }
+            }
+        ]
+    },
+    {
+        id: "q_methodology",
+        text: "Как ты решаешь проблемы?",
+        tags: ["refine_method"],
+        options: [
+            {
+                id: "meth_sword",
+                text: "Сталь и серебро. Простые и надежные аргументы.",
+                traitModifiers: { [Trait.ORDER]: 150, [Trait.MAGIC]: -100, [Trait.INTELLECT]: -50, [Trait.CYNICISM]: 150 }
+            },
+            {
+                id: "meth_magic",
+                text: "Заклинанием. Зачем пачкать руки, если можно сжечь?",
+                traitModifiers: { [Trait.MAGIC]: 300, [Trait.INTELLECT]: 100, [Trait.ORDER]: -50 }
+            },
+            {
+                id: "meth_words",
+                text: "Словом. Я могу заговорить зубы даже дракону.",
+                traitModifiers: { [Trait.EXTROVERSION]: 250, [Trait.INTELLECT]: 150, [Trait.IMPULSIVENESS]: -50 }
+            },
+            {
+                id: "meth_cunning",
+                text: "Хитростью. Враг победит себя сам.",
+                traitModifiers: { [Trait.INTELLECT]: 300, [Trait.CYNICISM]: 200, [Trait.ORDER]: -100 }
+            }
+        ]
+    },
+    {
+        id: "q_loyalty_target",
+        text: "Кому или чему ты служишь?",
+        tags: ["refine_cause"],
+        options: [
+            {
+                id: "loy_self",
+                text: "Только себе и своим желаниям.",
+                traitModifiers: { [Trait.AMBITION]: 150, [Trait.CYNICISM]: 200, [Trait.EMPATHY]: -100 }
+            },
+            {
+                id: "loy_state",
+                text: "Государству / Короне / Ордену.",
+                traitModifiers: { [Trait.ORDER]: 300, [Trait.AMBITION]: 100, [Trait.IMPULSIVENESS]: -150 }
+            },
+            {
+                id: "loy_friends",
+                text: "Своим друзьям и семье. Остальной мир пусть катится в пекло.",
+                traitModifiers: { [Trait.EMPATHY]: 300, [Trait.ORDER]: -100, [Trait.CYNICISM]: 50 }
+            },
+            {
+                id: "loy_knowledge",
+                text: "Истине и Науке/Магии. Власть преходяща, знания вечны.",
+                traitModifiers: { [Trait.INTELLECT]: 250, [Trait.MAGIC]: 150, [Trait.AMBITION]: 100, [Trait.ORDER]: -50 } // ... political questions
+            }
+        ]
+    },
+    {
+        id: "q_magic_power",
+        text: "Что сильнее: Магия или Власть?",
+        tags: ["refine_magic_power", "cluster_mentor", "cluster_ruler"],
+        options: [
+            {
+                id: "mp_magic",
+                text: "Магия. Она меняет саму структуру реальности, короли лишь пешки.",
+                traitModifiers: { [Trait.MAGIC]: 400, [Trait.INTELLECT]: 150, [Trait.ORDER]: -100 },
+                characterBoosts: { [CharacterId.YENNEFER]: 2, [CharacterId.PHILIPPA]: 2, [CharacterId.AVALLACH]: 2, [CharacterId.VILGEFORTZ]: 2 }
+            },
+            {
+                id: "mp_politics",
+                text: "Политика. Магов можно купить или убить, а система вечна.",
+                traitModifiers: { [Trait.AMBITION]: 300, [Trait.CYNICISM]: 200, [Trait.MAGIC]: -100 },
+                characterBoosts: { [CharacterId.EMHYR]: 2, [CharacterId.DIJKSTRA]: 2 }
+            },
+            {
+                id: "mp_army",
+                text: "Военная сила. В конечном счете все решает сталь.",
+                traitModifiers: { [Trait.ORDER]: 300, [Trait.AMBITION]: 100, [Trait.MAGIC]: -150 }
+            }
+        ]
+    },
+    {
+        id: "q_witcher_path",
+        text: "Как ты относишься к своему Предназначению (или Работе)?",
+        tags: ["refine_witcher", "cluster_rebel", "cluster_mentor"],
+        options: [
+            {
+                id: "path_job",
+                text: "Это просто работа. Делаю её качественно, без эмоций.",
+                traitModifiers: { [Trait.ORDER]: 250, [Trait.INTELLECT]: 100, [Trait.EMPATHY]: 50 },
+                characterBoosts: { [CharacterId.ESKEL]: 2, [CharacterId.VESEMIR]: 2, [CharacterId.LETHO]: 1 }
+            },
+            {
+                id: "path_cursed",
+                text: "Это проклятие. Жизнь - дерьмо, но я в ней лучший.",
+                traitModifiers: { [Trait.CYNICISM]: 300, [Trait.IMPULSIVENESS]: 100, [Trait.EMPATHY]: -100 },
+                characterBoosts: { [CharacterId.LAMBERT]: 3 }
+            },
+            {
+                id: "path_protect",
+                text: "Я защищаю тех, кто не может защитить себя. Это мой долг.",
+                traitModifiers: { [Trait.EMPATHY]: 300, [Trait.ORDER]: 100, [Trait.CYNICISM]: -100 },
+                characterBoosts: { [CharacterId.GERALT]: 2, [CharacterId.CIRI]: 1 }
+            },
+            {
+                id: "path_power",
+                text: "Это путь к силе и величию. Я избранный.",
+                traitModifiers: { [Trait.AMBITION]: 300, [Trait.MAGIC]: 150, [Trait.EMPATHY]: -200 }
             }
         ]
     }

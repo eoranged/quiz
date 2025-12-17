@@ -2,7 +2,7 @@ export enum CharacterId {
   GERALT = 'geralt',
   YENNEFER = 'yennefer',
   JASKIER = 'jaskier',
-  ROACH = 'roach',
+
   CIRI = 'ciri',
   TRISS = 'triss',
   VESEMIR = 'vesemir',
@@ -10,7 +10,7 @@ export enum CharacterId {
   REGIS = 'regis',
   LAMBERT = 'lambert',
   ESKEL = 'eskel',
-  KEIRA = 'keira',
+
   DIJKSTRA = 'dijkstra',
   EMHYR = 'emhyr',
   ROCHE = 'roche',
@@ -20,38 +20,38 @@ export enum CharacterId {
   PHILIPPA = 'philippa',
   // New Characters
   VILGEFORTZ = 'vilgefortz',
-  CAHIR = 'cahir',
-  MILVA = 'milva',
-  ANGOULEME = 'angouleme',
-  BONHART = 'bonhart',
-  FRINGILLA = 'fringilla',
-  MARGARITA = 'margarita',
-  SHEALA = 'sheala',
-  TISSAIA = 'tissaia',
-  DUDU = 'dudu',
-  PRISCILLA = 'priscilla',
+
+
+
+
+
+
+
+
+
+
   DETTLAFF = 'dettlaff',
-  SYANNA = 'syanna',
+
   ANNA_HENRIETTA = 'anna_henrietta',
   OLGIERD = 'olgierd',
-  VLODIMIR = 'vlodimir',
-  CRACH = 'crach',
-  CERYS = 'cerys',
-  HJALMAR = 'hjalmar',
-  MOUSESACK = 'mousesack',
-  RADOVID = 'radovid',
-  FOLTEST = 'foltest',
+
+
+
+
+
+
+
   LETHO = 'letho',
-  VES = 'ves',
-  THALER = 'thaler',
-  UMA = 'uma',
-  IMLERITH = 'imlerith',
+
+
+
+
   EREDIN = 'eredin',
   AVALLACH = 'avallach',
-  RENFRI = 'renfri',
-  CALANTHE = 'calanthe',
-  PAVETTA = 'pavetta',
-  YARPEN = 'yarpen'
+
+
+
+
 }
 
 export enum Trait {
@@ -71,6 +71,7 @@ export interface Option {
   id: string;
   text: string;
   traitModifiers: Partial<TraitProfile>;
+  characterBoosts?: Partial<Record<string, number>>;
 }
 
 export interface Question {
