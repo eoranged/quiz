@@ -5,11 +5,10 @@ import { QuizLoader } from './components/QuizLoader';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/quiz">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<Home />} />
-        <Route path="/:quizId" element={<QuizLoader />} />
+        <Route path="/:type/:name" element={<QuizLoader />} />
         {/* Fallback to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

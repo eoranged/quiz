@@ -11,7 +11,7 @@ export const QUIZZES: Record<string, QuizConfig> = {
         description: 'Узнай, кто ты из мира Ведьмака',
         characters: CHARACTERS,
         questions: WITCHER_QUESTIONS,
-        path: '/witcher-personality',
+        path: 'personality/witcher',
         engineConfig: {
             maxQuestions: 8,
             baseBoostFactor: 0.25,
@@ -64,6 +64,6 @@ export const QUIZZES: Record<string, QuizConfig> = {
         description: 'Which Simpson character are you?',
         characters: SIMPSON_CHARACTERS,
         questions: SIMPSON_QUESTIONS,
-        path: '/simpson-personality'
+        path: 'personality/simpsons'
     }
 };

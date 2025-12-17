@@ -4,12 +4,14 @@ import { QUIZZES } from '../data/quizzes';
 import { Quiz } from './Quiz';
 
 export const QuizLoader: React.FC = () => {
-    const { quizId } = useParams<{ quizId: string }>();
+    const { type, name } = useParams<{ type: string; name: string }>();
 
-    if (!quizId || !QUIZZES[quizId]) {
+    const targetPath = `${type}/${name}`;
+    const quizConfig = Object.values(QUIZZES).find(q => q.path === targetPath);
+
+    if (!quizConfig) {
         return <Navigate to="/" replace />;
     }
 
-    const quizConfig = QUIZZES[quizId];
     return <Quiz config={quizConfig} />;
 };

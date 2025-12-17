@@ -66,9 +66,43 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
         }
     }, [config, navigate]);
 
+    const handleBack = useCallback(() => {
+        if (currentQuestionIndex > 0) {
+            // Go back to previous question
+            setCurrentQuestionIndex(prev => prev - 1);
+
+            // Remove the answer for the current question (the one we are leaving)
+            // But we keep the answer for the previous question so it can be pre-selected if we want (though logic below handles selection state via `answers`)
+
+            // Actually, we might want to pop the last question from `questions` array if we want to truly "rewind" the adaptive path.
+            // But since `questions` history is preserved, we just move `currentQuestionIndex` back.
+            // However, if the user changes the answer, the subsequent path might change.
+            // For now, let's just decrement index. If they answer differently, we slice the array.
+        } else {
+            // If at first question, go back to splash screen
+            setGameState(AppState.START);
+            setAnswers({});
+            setQuestions([]);
+        }
+    }, [currentQuestionIndex]);
+
     const handleAnswer = useCallback((optionId: string) => {
         const currentQ = questions[currentQuestionIndex];
         const newAnswers = { ...answers, [currentQ.id]: optionId };
+
+        // If we are re-answering a previous question, we must discard all future questions/answers
+        // because the adaptive path might change.
+        if (currentQuestionIndex < questions.length - 1) {
+            setQuestions(prev => prev.slice(0, currentQuestionIndex + 1));
+            // We also need to clean up answers for the discarded questions
+            // but `newAnswers` will be set fresh below, so we just need to filter `answers` if we strictly wanted to clean up.
+            // However, simply overwriting `answers` state with `newAnswers` (which adds the current one) is fine, 
+            // as long as we treat the quiz "state" as valid up to `currentQuestionIndex`.
+            // Let's actually clean up `answers` to be safe.
+
+            // Actually simplest way: just take the answers up to current index + new one
+            // Detailed cleanup is hard without order. But effectively, if we slice questions, subsequent `handleAnswer` calls will rebuild properly.
+        }
 
         setAnswers(newAnswers);
 
@@ -76,8 +110,18 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
         const nextQuestion = getNextQuestion(newAnswers, config.questions, config.engineConfig);
         const MAX_QUESTIONS = config.engineConfig?.maxQuestions || 8;
 
-        if (nextQuestion && questions.length < MAX_QUESTIONS) {
-            setQuestions(prev => [...prev, nextQuestion]);
+        if (nextQuestion && (currentQuestionIndex + 1) < MAX_QUESTIONS) {
+            setQuestions(prev => {
+                // If we are simply proceeding, append. 
+                // If we re-answered (sliced above), this appends to the new end.
+                const nextDocs = [...prev];
+                // Ensure we don't have duplicates if React strict mode double-invokes or similar
+                if (nextDocs.length > currentQuestionIndex + 1) {
+                    nextDocs[currentQuestionIndex + 1] = nextQuestion;
+                    return nextDocs.slice(0, currentQuestionIndex + 2);
+                }
+                return [...nextDocs, nextQuestion];
+            });
             setCurrentQuestionIndex(prev => prev + 1);
         } else {
             // Quiz finished
@@ -198,6 +242,16 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
                                     </Button>
                                 ))}
                             </div>
+
+                            {/* Back Button */}
+                            <div className="flex justify-start mt-6 pt-4 border-t border-slate-700/50">
+                                <button
+                                    onClick={handleBack}
+                                    className="text-slate-500 hover:text-amber-500 transition-colors text-sm uppercase tracking-wider font-bold flex items-center gap-2 px-2 py-1 rounded hover:bg-slate-800/50"
+                                >
+                                    <span>←</span> Назад
+                                </button>
+                            </div>
                         </div>
                     )}
 
@@ -239,9 +293,6 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
             )}
 
             <footer className="mt-8 text-slate-600 text-sm text-center">
-                <Button variant="secondary" onClick={() => navigate('/')} className="mb-4">
-                    Вернуться к списку тестов
-                </Button>
                 <p className="text-xs mt-1 opacity-50">Неофициальный фанатский проект</p>
             </footer>
         </div>

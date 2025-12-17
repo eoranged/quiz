@@ -9,5 +9,5 @@ export default defineConfig({
       /* pass your config */
     }),
   ],
-  base: './'
+  base: '/quiz/'
 })
