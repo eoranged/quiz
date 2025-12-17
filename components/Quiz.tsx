@@ -82,6 +82,14 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
         } else {
             // Quiz finished
             const analysis = calculateResult(newAnswers, config.questions, config.characters, config.engineConfig);
+
+            // Log user flow for reproduction
+            const flow = questions.map(q => ({
+                qid: q.id,
+                aid: newAnswers[q.id]
+            }));
+            console.log("📜 User Flow:", JSON.stringify(flow));
+
             setResult(analysis);
             setGameState(AppState.RESULT);
 
