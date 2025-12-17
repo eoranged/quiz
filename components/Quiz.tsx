@@ -137,6 +137,19 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
             setResult(analysis);
             setGameState(AppState.RESULT);
 
+            // Silent statistics report
+            try {
+                const params = new URLSearchParams();
+                params.append('id', config.path); // path is like "personality/witcher"
+                params.append('result', analysis.id);
+                params.append('user_flow', JSON.stringify(flow));
+
+                // Fire and forget
+                fetch(`/_tools/quiz/result?${params.toString()}`, { method: 'GET', keepalive: true }).catch(() => { });
+            } catch (e) {
+                // Ignore
+            }
+
             // Update URL with encoded result
             const code = encodeAnswers(newAnswers);
             window.location.hash = `result-${code}`;
