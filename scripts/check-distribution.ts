@@ -1,4 +1,4 @@
-import { getNextQuestion, calculateResult } from "../services/geminiService";
+import { getNextQuestion, calculateResult } from "../services/engine";
 import { QUIZZES } from "../data/quizzes";
 
 const args = process.argv.slice(2);

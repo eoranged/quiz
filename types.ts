@@ -65,6 +65,34 @@ export enum Trait {
   ORDER = 'order'
 }
 
+export interface ClusterCondition {
+  trait: Trait;
+  operator: '>' | '<' | '>=' | '<=';
+  threshold: number;
+}
+
+export interface ClusterRule {
+  tag: string;
+  conditions: ClusterCondition[];
+  combineWith?: 'AND' | 'OR'; // default AND
+}
+
+export interface PhaseWeights {
+  global: number;
+  archetype: number;
+  refinement: number;
+}
+
+export interface QuizEngineConfig {
+  maxQuestions: number;
+  clusterRules?: ClusterRule[];
+  phaseWeights?: PhaseWeights;
+  baseBoostFactor?: number; // default 0.25 (25%)
+  duplicateCheck?: boolean;
+  randomSeed?: number; // for deterministic determinism if needed
+  debug?: boolean;
+}
+
 export type TraitProfile = Record<Trait, number>;
 
 export interface Option {
@@ -79,6 +107,16 @@ export interface Question {
   text: string;
   options: Option[];
   tags?: string[]; // e.g., 'global', 'ruler', 'monster', etc.
+}
+
+export interface QuizConfig {
+  id: string;
+  title: string;
+  description: string;
+  characters: Record<string, QuizResult>;
+  questions: Question[];
+  path: string;
+  engineConfig?: QuizEngineConfig; // Optional configuration for the engine
 }
 
 export interface QuizResult {

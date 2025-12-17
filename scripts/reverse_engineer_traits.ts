@@ -1,8 +1,8 @@
 
 import { CHARACTERS } from "../data/witcher-personality/characters";
 import { QUESTIONS_DATA } from "../data/witcher-personality/questions";
-import { calculateProfile } from "../services/geminiService";
-import { CharacterId, Question, Option, Trait } from "../types";
+import { calculateProfile } from "../services/engine";
+import { CharacterId, Trait } from "../types";
 
 const LORE_ANSWERS: Record<string, Record<string, string>> = {
     [CharacterId.GERALT]: {

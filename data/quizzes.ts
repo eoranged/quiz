@@ -1,17 +1,8 @@
-import { QuizResult, Question } from '../types';
+import { QuizConfig, Trait } from '../types';
 import { CHARACTERS } from './witcher-personality/characters';
 import { QUESTIONS_DATA as WITCHER_QUESTIONS } from './witcher-personality/questions';
 import { SIMPSON_CHARACTERS } from './simpson-personality/characters';
 import { SIMPSON_QUESTIONS } from './simpson-personality/questions';
-
-export interface QuizConfig {
-    id: string;
-    title: string;
-    description: string;
-    characters: Record<string, QuizResult>;
-    questions: Question[];
-    path: string;
-}
 
 export const QUIZZES: Record<string, QuizConfig> = {
     'witcher-personality': {
@@ -20,7 +11,52 @@ export const QUIZZES: Record<string, QuizConfig> = {
         description: 'Узнай, кто ты из мира Ведьмака',
         characters: CHARACTERS,
         questions: WITCHER_QUESTIONS,
-        path: '/witcher-personality'
+        path: '/witcher-personality',
+        engineConfig: {
+            maxQuestions: 8,
+            baseBoostFactor: 0.25,
+            duplicateCheck: true,
+            clusterRules: [
+                {
+                    tag: "cluster_bard",
+                    conditions: [
+                        { trait: Trait.EXTROVERSION, operator: '>', threshold: 600 }
+                    ],
+                    combineWith: 'OR'
+                },
+                {
+                    tag: "cluster_bard",
+                    conditions: [
+                        { trait: Trait.IMPULSIVENESS, operator: '>', threshold: 600 }
+                    ],
+                    combineWith: 'OR'
+                },
+                {
+                    tag: "cluster_ruler",
+                    conditions: [
+                        { trait: Trait.AMBITION, operator: '>', threshold: 600 },
+                        { trait: Trait.ORDER, operator: '>', threshold: 550 }
+                    ],
+                    combineWith: 'AND'
+                },
+                {
+                    tag: "cluster_rebel",
+                    conditions: [
+                        { trait: Trait.CYNICISM, operator: '>', threshold: 600 },
+                        { trait: Trait.EMPATHY, operator: '<', threshold: 450 }
+                    ],
+                    combineWith: 'AND'
+                },
+                {
+                    tag: "cluster_mentor",
+                    conditions: [
+                        { trait: Trait.INTELLECT, operator: '>', threshold: 600 },
+                        { trait: Trait.ORDER, operator: '>', threshold: 500 }
+                    ],
+                    combineWith: 'AND'
+                }
+            ]
+        }
     },
     'simpson-personality': {
         id: 'simpson-personality',

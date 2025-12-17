@@ -1,4 +1,4 @@
-import { calculateResult, calculateProfile, getNextQuestion } from '../services/geminiService';
+import { calculateResult, calculateProfile, getNextQuestion } from '../services/engine';
 import { QUIZZES } from '../data/quizzes';
 import { CharacterId, Trait } from '../types';
 
@@ -72,7 +72,7 @@ charactersToTest.forEach(targetChar => {
     const MAX_ITERATIONS = 8; // Match App.tsx limit
 
     while (iteration < MAX_ITERATIONS) {
-        const question = getNextQuestion(currentAnswers, QUESTIONS);
+        const question = getNextQuestion(currentAnswers, QUESTIONS, quizConfig.engineConfig);
         if (!question) break; // No more questions
 
         // Find best option for this target character
@@ -128,7 +128,7 @@ charactersToTest.forEach(targetChar => {
 
     // Final Calculation
     const finalProfile = calculateProfile(currentAnswers, QUESTIONS);
-    const resultChar = calculateResult(currentAnswers, QUESTIONS, CHARACTERS);
+    const resultChar = calculateResult(currentAnswers, QUESTIONS, CHARACTERS, quizConfig.engineConfig);
 
     // Check duplication logic: Calculate distances for results
     // We recreate "getDist" logic here using the *final* currentTraits vs Char Traits

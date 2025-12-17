@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { AppState, Question, QuizResult } from '../types';
-import { calculateResult, encodeAnswers, decodeAnswers, getNextQuestion } from '../services/geminiService';
+import { calculateResult, encodeAnswers, decodeAnswers, getNextQuestion } from '../services/engine';
 import { Button } from './Button';
 import { LoadingIndicator } from './LoadingIndicator';
 import { CharacterCard } from './CharacterCard';
-import { QuizConfig } from '../data/quizzes';
+import { QuizConfig } from '../types';
 import { useNavigate } from 'react-router-dom';
 
 // Helper to load avatar images dynamically
@@ -36,7 +36,7 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
                 const code = hash.replace('#result-', '');
                 const decodedAnswers = decodeAnswers(code);
                 if (decodedAnswers) {
-                    const analysis = calculateResult(decodedAnswers, config.questions, config.characters);
+                    const analysis = calculateResult(decodedAnswers, config.questions, config.characters, config.engineConfig);
                     setResult(analysis);
                     setGameState(AppState.RESULT);
                     setAnswers(decodedAnswers);
@@ -51,7 +51,7 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
 
     const startGame = useCallback(() => {
         // Start with the first adaptive question
-        const firstQuestion = getNextQuestion({}, config.questions);
+        const firstQuestion = getNextQuestion({}, config.questions, config.engineConfig);
         if (firstQuestion) {
             setQuestions([firstQuestion]);
             setAnswers({});
@@ -73,15 +73,15 @@ export const Quiz: React.FC<QuizProps> = ({ config }) => {
         setAnswers(newAnswers);
 
         // Get next question based on current answers
-        const nextQuestion = getNextQuestion(newAnswers, config.questions);
-        const MAX_QUESTIONS = 8; // Fuzzy tree depth - could be part of config
+        const nextQuestion = getNextQuestion(newAnswers, config.questions, config.engineConfig);
+        const MAX_QUESTIONS = config.engineConfig?.maxQuestions || 8;
 
         if (nextQuestion && questions.length < MAX_QUESTIONS) {
             setQuestions(prev => [...prev, nextQuestion]);
             setCurrentQuestionIndex(prev => prev + 1);
         } else {
             // Quiz finished
-            const analysis = calculateResult(newAnswers, config.questions, config.characters);
+            const analysis = calculateResult(newAnswers, config.questions, config.characters, config.engineConfig);
             setResult(analysis);
             setGameState(AppState.RESULT);
 
